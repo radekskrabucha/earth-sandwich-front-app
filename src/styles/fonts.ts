@@ -1,6 +1,6 @@
-import { Montserrat, Barlow } from 'next/font/google'
+import { Unbounded, Instrument_Sans } from 'next/font/google'
 
-export const MainFont = Barlow({
+export const MainFont = Unbounded({
   subsets: ['latin'],
   weight: ['500', '700', '800'],
   fallback: ['sans-serif'],
@@ -8,7 +8,7 @@ export const MainFont = Barlow({
   display: 'swap'
 })
 
-export const SecondaryFont = Montserrat({
+export const SecondaryFont = Instrument_Sans({
   subsets: ['latin'],
   weight: ['400'],
   fallback: ['sans-serif'],

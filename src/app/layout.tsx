@@ -21,7 +21,7 @@ const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
       className={cx(
         MainFont.variable,
         SecondaryFont.variable,
-        'relative flex min-h-[100dvh] flex-col items-center overflow-x-hidden bg-background font-secondary'
+        'relative flex min-h-[100dvh] flex-col items-center overflow-x-hidden bg-background font-secondary text-white'
       )}
     >
       <MainLayout>{children}</MainLayout>
