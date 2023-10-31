@@ -2,8 +2,7 @@ import { type Metadata } from 'next'
 import { client } from '@/utils/env'
 import { AppName } from './app'
 
-export const Description =
-  'A starter for Next.js using app router with TypeScript and Tailwind CSS.'
+export const Description = `${AppName} is a social network for people who want to make the world a better place.`
 
 export const DefaultSEOTags: Metadata = {
   description: Description,

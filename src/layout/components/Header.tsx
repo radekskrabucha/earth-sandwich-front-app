@@ -10,7 +10,7 @@ export const Header = () => (
           className="z-[1001] text-4xl"
           href={InternalLink.home}
         >
-          🥑
+          🍔
         </Link>
         <HeaderMenu />
       </nav>
