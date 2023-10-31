@@ -4,7 +4,6 @@ import { useDisclosure } from '@mantine/hooks'
 import { cx } from 'class-variance-authority'
 import { Hamburger } from './Hamburger'
 import { NavLinks } from './NavLinks'
-import { SocialIcons } from './SocialIcons'
 
 export const HeaderMenu = () => {
   const [isOpen, handlers] = useDisclosure(false)
@@ -26,7 +25,6 @@ export const HeaderMenu = () => {
         )}
       >
         <NavLinks onNavLinkClick={onClose} />
-        <SocialIcons iconClassName="hover:text-secondary-400" />
       </div>
       <Hamburger
         isOpen={isOpen}
