@@ -10,6 +10,10 @@ const config = {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: '480px',
+        xxs: '360px'
+      },
       colors: {
         primary: {
           DEFAULT: '#F7B801',
