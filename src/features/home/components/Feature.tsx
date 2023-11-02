@@ -28,7 +28,7 @@ export const Feature: React.FC<FeatureProps> = ({
     </div>
     <div className="flex flex-1 flex-col gap-6 max-md:gap-4">
       <h3 className="font-main text-4xl max-md:text-3xl">{title}</h3>
-      <p>{description}</p>
+      <p className="text-white/75">{description}</p>
     </div>
   </div>
 )

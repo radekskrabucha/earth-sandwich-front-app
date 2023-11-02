@@ -1,6 +1,6 @@
 export const DescriptionSection = () => (
   <section className="layout-section gap-10">
-    <h2 className="font-main text-5xl text-primary max-md:text-4xl">
+    <h2 className="font-main text-5xl font-extrabold text-primary max-md:text-4xl">
       Meet, Explore, and Sandwich!
     </h2>
     <div className="flex gap-8 text-xl max-md:flex-col">

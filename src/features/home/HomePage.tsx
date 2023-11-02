@@ -3,6 +3,7 @@ import EmojiHandshake from '@/public/images/homepage/handshake.svg'
 import EmojiRocket from '@/public/images/homepage/rocket.svg'
 import EmojiStar from '@/public/images/homepage/star.svg'
 import {
+  CallToActionSection,
   DescriptionSection,
   EmojiSeparatorSection,
   FeaturesSection,
@@ -24,5 +25,6 @@ export const HomePage = () => (
       emoji1={EmojiHandshake}
       emoji2={EmojiCelebrate}
     />
+    <CallToActionSection />
   </>
 )
