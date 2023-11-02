@@ -1,7 +1,8 @@
-import { HeroSection } from './components'
+import { DescriptionSection, HeroSection } from './components'
 
 export const HomePage = () => (
   <>
     <HeroSection />
+    <DescriptionSection />
   </>
 )
