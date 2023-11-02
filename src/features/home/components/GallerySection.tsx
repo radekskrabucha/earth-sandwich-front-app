@@ -1,5 +1,5 @@
-import { Image } from '@/components/Image'
 import { GALLERY_IMAGES } from '../constants'
+import { GalleryImageTile } from './GalleryImageTile'
 
 export const GallerySection = () => (
   <section className="layout-section gap-10">
@@ -7,18 +7,12 @@ export const GallerySection = () => (
       Epic Sandwich Moments
     </h2>
     <div className="grid grid-cols-2 gap-8 max-xs:gap-6">
-      {GALLERY_IMAGES.map((src, index) => (
-        <div
+      {GALLERY_IMAGES.map((images, index) => (
+        <GalleryImageTile
+          images={images}
           key={index}
-          className="relative aspect-square overflow-hidden rounded-3xl"
-        >
-          <Image
-            src={src}
-            alt=""
-            fill
-            className="object-cover object-center"
-          />
-        </div>
+          delay={index === 1 || index === 2}
+        />
       ))}
     </div>
   </section>
