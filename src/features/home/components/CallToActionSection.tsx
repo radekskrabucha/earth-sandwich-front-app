@@ -7,6 +7,6 @@ export const CallToActionSection = () => (
       Ready to time-travel through the world via sandwiches? What are you
       waiting for? The universe of sandwiches awaits!
     </p>
-    <Button disabled>Sign Up</Button>
+    <Button>Sign Up</Button>
   </section>
 )
