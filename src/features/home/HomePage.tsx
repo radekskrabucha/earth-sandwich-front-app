@@ -5,6 +5,7 @@ import EmojiStar from '@/public/images/homepage/star.svg'
 import {
   DescriptionSection,
   EmojiSeparatorSection,
+  FeaturesSection,
   GallerySection,
   HeroSection
 } from './components'
@@ -18,6 +19,7 @@ export const HomePage = () => (
       emoji1={EmojiRocket}
       emoji2={EmojiStar}
     />
+    <FeaturesSection />
     <EmojiSeparatorSection
       emoji1={EmojiHandshake}
       emoji2={EmojiCelebrate}
