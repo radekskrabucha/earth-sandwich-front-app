@@ -2,7 +2,7 @@
   @apply flex w-screen max-w-full flex-col;
 }
 .layout-section {
-  @apply flex w-full max-w-[1520px] flex-col self-center p-14 max-lg:p-10 max-md:p-7;
+  @apply flex w-full max-w-[1030px] flex-col self-center p-14 max-lg:px-10 max-md:px-7;
 }
 
 @tailwind base;
