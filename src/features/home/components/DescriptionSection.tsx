@@ -1,5 +1,5 @@
 export const DescriptionSection = () => (
-  <section className="layout-section gap-10">
+  <section className="layout-section gap-10 py-40">
     <h2 className="font-main text-5xl font-extrabold text-primary max-md:text-4xl">
       Meet, Explore, and Sandwich!
     </h2>
