@@ -17,13 +17,7 @@ const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
         href="sprite.svg"
       />
     </head>
-    <body
-      className={cx(
-        MainFont.variable,
-        SecondaryFont.variable,
-        'relative flex min-h-[100dvh] flex-col items-center overflow-x-hidden bg-background font-secondary text-white'
-      )}
-    >
+    <body className={cx(MainFont.variable, SecondaryFont.variable)}>
       <MainLayout>{children}</MainLayout>
     </body>
   </html>
