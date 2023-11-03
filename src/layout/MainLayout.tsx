@@ -1,8 +1,9 @@
-import { Footer } from './components'
+import { Footer, Header } from './components'
 
 export const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <div className="relative flex h-screen max-w-full flex-col items-center overflow-x-hidden bg-background font-secondary text-white">
-    <main className="layout-container flex-1">{children}</main>
+  <div className="relative flex max-h-screen w-screen max-w-full flex-col items-center overflow-x-hidden bg-background font-secondary text-white">
+    <Header />
+    <main className="layout-container z-0 flex-1">{children}</main>
     <Footer />
   </div>
 )

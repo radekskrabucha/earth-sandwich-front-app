@@ -25,7 +25,7 @@ export const Feature: React.FC<FeatureProps> = ({
         fill
         className="object-cover object-center"
       />
-      <div className="absolute inset-0 z-10 bg-background/50" />
+      <div className="absolute inset-0 z-[1] bg-background/50" />
     </div>
     <div className="flex flex-1 flex-col gap-6 max-md:gap-4">
       <h3 className="font-main text-4xl max-md:text-3xl">{title}</h3>
