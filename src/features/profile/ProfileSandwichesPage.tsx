@@ -3,18 +3,16 @@ import { Link } from '@/components/Link'
 import { InternalLink } from '@/config/app'
 import { ProfilePageProps } from './types'
 
-export const ProfilePage: React.FC<ProfilePageProps> = ({
+export const ProfileSandwichesPage: React.FC<ProfilePageProps> = ({
   params: { address }
 }) => (
   <section className="layout-section">
-    <h1>Profile page</h1>
+    <h1>Profile sandwiches page</h1>
     <Button
       asChild
       variant="link"
     >
-      <Link href={InternalLink.profileSandwiches(address)}>
-        Profile sandwiches
-      </Link>
+      <Link href={InternalLink.profile(address)}>Profile</Link>
     </Button>
   </section>
 )
