@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Image } from '@/components/Image'
-import { ImageSrc } from '@/types/image'
+import { type ImageSrc } from '@/types/image'
 
 type GalleryImageTileProps = {
   images: Array<ImageSrc>

@@ -1,5 +1,5 @@
 import { Image } from '@/components/Image'
-import { ImageSrc } from '@/types/image'
+import { type ImageSrc } from '@/types/image'
 
 type EmojiImageWrapperProps = {
   src: ImageSrc
