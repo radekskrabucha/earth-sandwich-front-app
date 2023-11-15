@@ -1,4 +1,4 @@
-import { LSP3ProfileJSON, LSP3Profile } from '@lukso/lsp-factory.js'
+import { type LSP3ProfileJSON, type LSP3Profile } from '@lukso/lsp-factory.js'
 import { getProfile } from '@/lib/erc725'
 
 export const getLSP3ProfileData = async (

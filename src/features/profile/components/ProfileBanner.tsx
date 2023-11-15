@@ -1,6 +1,6 @@
 import { cx } from 'class-variance-authority'
 import { Image } from '@/components/Image'
-import { ImageSrc } from '@/types/image'
+import { type ImageSrc } from '@/types/image'
 
 type ProfileBannerProps = {
   name: string

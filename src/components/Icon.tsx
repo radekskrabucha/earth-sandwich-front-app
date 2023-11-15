@@ -1,4 +1,4 @@
-import { IconId } from '@/types/icons'
+import { type IconId } from '@/types/icons'
 import { getIconHref } from '@/utils/icons'
 
 type IconProps = {

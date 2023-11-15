@@ -1,7 +1,7 @@
 import { Button } from '@/components/Button'
 import { Link } from '@/components/Link'
 import { InternalLink } from '@/config/app'
-import { ProfilePageProps } from './types'
+import { type ProfilePageProps } from './types'
 
 export const ProfilePage: React.FC<ProfilePageProps> = ({
   params: { address }

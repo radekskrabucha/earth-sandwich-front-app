@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { ImageSrc } from '@/types/image'
+import { type ImageSrc } from '@/types/image'
 
 type FeatureProps = {
   id: string

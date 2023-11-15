@@ -1,5 +1,5 @@
-import ERC725, { ERC725JSONSchema } from '@erc725/erc725.js'
-import { GetDataDynamicKey } from '@erc725/erc725.js/build/main/src/types/GetData'
+import ERC725, { type ERC725JSONSchema } from '@erc725/erc725.js'
+import { type GetDataDynamicKey } from '@erc725/erc725.js/build/main/src/types/GetData'
 import lsp3ProfileSchema from '@erc725/erc725.js/schemas/LSP3ProfileMetadata.json'
 import { server } from '@/utils/env'
 

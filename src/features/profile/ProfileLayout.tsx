@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import { createIpfsLink } from '@/utils/images'
 import { isEvmAddress } from '@/utils/regexes'
 import { ProfileBanner } from './components'
-import { ProfilePageProps } from './types'
+import { type ProfilePageProps } from './types'
 import { getLSP3ProfileData } from './utils'
 
 export const ProfileLayout: React.FC<
@@ -24,10 +24,13 @@ export const ProfileLayout: React.FC<
         description={profile.description}
         name={profile.name}
         avatar={
-          profile.profileImage && createIpfsLink(profile.profileImage?.[0].url)
+          profile.profileImage &&
+          profile.profileImage[0] &&
+          createIpfsLink(profile.profileImage?.[0].url)
         }
         background={
           profile.backgroundImage &&
+          profile.backgroundImage[0] &&
           createIpfsLink(profile.backgroundImage[0].url)
         }
       />
