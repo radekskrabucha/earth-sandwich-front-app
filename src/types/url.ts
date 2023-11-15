@@ -1,3 +1,3 @@
-import { LinkProps } from 'next/link'
+import { type LinkProps } from 'next/link'
 
 export type LinkHref = LinkProps['href']

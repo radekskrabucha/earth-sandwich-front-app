@@ -1,4 +1,4 @@
-import { IconId as IconIdType } from '@/types/icons'
+import { type IconId as IconIdType } from '@/types/icons'
 
 export const IconId = {
   linkedin: 'linkedin',

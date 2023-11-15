@@ -1,4 +1,4 @@
-import { ImageSrc } from '@/types/image'
+import { type ImageSrc } from '@/types/image'
 import { EmojiImageWrapper } from './EmojiImageWrapper'
 
 type EmojiSeparatorSectionProps = {

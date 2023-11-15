@@ -1,5 +1,5 @@
-import NextLink, { LinkProps as InternalLinkProps } from 'next/link'
-import { WithClassName } from '@/types/common'
+import NextLink, { type LinkProps as InternalLinkProps } from 'next/link'
+import { type WithClassName } from '@/types/common'
 import { isExternalLink } from '@/utils/regexes'
 
 type LinkProps = {
