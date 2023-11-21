@@ -10,12 +10,13 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
   [publicProvider()]
 )
 
+export const injectedConnector = new InjectedConnector({ chains })
+
 export const wagmiConfig = createConfig({
-  autoConnect: true,
+  autoConnect: false,
   publicClient,
   webSocketPublicClient,
-
-  connectors: [new InjectedConnector({ chains })]
+  connectors: [injectedConnector]
 })
 
 export { chains }
