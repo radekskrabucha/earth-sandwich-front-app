@@ -2,13 +2,409 @@ export const EarthSandwichABI = [
   {
     inputs: [
       {
+        internalType: 'string',
+        name: 'name',
+        type: 'string'
+      },
+      {
+        internalType: 'string',
+        name: 'symbol',
+        type: 'string'
+      },
+      {
+        internalType: 'address',
+        name: 'newOwner',
+        type: 'address'
+      }
+    ],
+    stateMutability: 'nonpayable',
+    type: 'constructor'
+  },
+  {
+    inputs: [],
+    name: 'ERC725Y_DataKeysValuesEmptyArray',
+    type: 'error'
+  },
+  {
+    inputs: [],
+    name: 'ERC725Y_DataKeysValuesLengthMismatch',
+    type: 'error'
+  },
+  {
+    inputs: [],
+    name: 'ERC725Y_MsgValueDisallowed',
+    type: 'error'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes',
+        name: 'storedData',
+        type: 'bytes'
+      }
+    ],
+    name: 'InvalidExtensionAddress',
+    type: 'error'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes',
+        name: 'data',
+        type: 'bytes'
+      }
+    ],
+    name: 'InvalidFunctionSelector',
+    type: 'error'
+  },
+  {
+    inputs: [],
+    name: 'LSP4TokenNameNotEditable',
+    type: 'error'
+  },
+  {
+    inputs: [],
+    name: 'LSP4TokenSymbolNotEditable',
+    type: 'error'
+  },
+  {
+    inputs: [],
+    name: 'LSP8CannotSendToAddressZero',
+    type: 'error'
+  },
+  {
+    inputs: [],
+    name: 'LSP8CannotSendToSelf',
+    type: 'error'
+  },
+  {
+    inputs: [],
+    name: 'LSP8CannotUseAddressZeroAsOperator',
+    type: 'error'
+  },
+  {
+    inputs: [],
+    name: 'LSP8InvalidTransferBatch',
+    type: 'error'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'tokenId',
+        type: 'bytes32'
+      }
+    ],
+    name: 'LSP8NonExistentTokenId',
+    type: 'error'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'operator',
+        type: 'address'
+      },
+      {
+        internalType: 'bytes32',
+        name: 'tokenId',
+        type: 'bytes32'
+      }
+    ],
+    name: 'LSP8NonExistingOperator',
+    type: 'error'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'tokenId',
+        type: 'bytes32'
+      },
+      {
+        internalType: 'address',
+        name: 'caller',
+        type: 'address'
+      }
+    ],
+    name: 'LSP8NotTokenOperator',
+    type: 'error'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'tokenOwner',
+        type: 'address'
+      },
+      {
+        internalType: 'bytes32',
+        name: 'tokenId',
+        type: 'bytes32'
+      },
+      {
+        internalType: 'address',
+        name: 'caller',
+        type: 'address'
+      }
+    ],
+    name: 'LSP8NotTokenOwner',
+    type: 'error'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'tokenReceiver',
+        type: 'address'
+      }
+    ],
+    name: 'LSP8NotifyTokenReceiverContractMissingLSP1Interface',
+    type: 'error'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'tokenReceiver',
+        type: 'address'
+      }
+    ],
+    name: 'LSP8NotifyTokenReceiverIsEOA',
+    type: 'error'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'operator',
+        type: 'address'
+      },
+      {
+        internalType: 'bytes32',
+        name: 'tokenId',
+        type: 'bytes32'
+      }
+    ],
+    name: 'LSP8OperatorAlreadyAuthorized',
+    type: 'error'
+  },
+  {
+    inputs: [],
+    name: 'LSP8TokenContractCannotHoldValue',
+    type: 'error'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'tokenId',
+        type: 'bytes32'
+      }
+    ],
+    name: 'LSP8TokenIdAlreadyMinted',
+    type: 'error'
+  },
+  {
+    inputs: [],
+    name: 'LSP8TokenIdTypeNotEditable',
+    type: 'error'
+  },
+  {
+    inputs: [],
+    name: 'LSP8TokenOwnerCannotBeOperator',
+    type: 'error'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes4',
+        name: 'functionSelector',
+        type: 'bytes4'
+      }
+    ],
+    name: 'NoExtensionFoundForFunctionSelector',
+    type: 'error'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'callerAddress',
+        type: 'address'
+      }
+    ],
+    name: 'OwnableCallerNotTheOwner',
+    type: 'error'
+  },
+  {
+    inputs: [],
+    name: 'OwnableCannotSetZeroAddressAsOwner',
+    type: 'error'
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'operator',
+        type: 'address'
+      },
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'tokenOwner',
+        type: 'address'
+      },
+      {
+        indexed: true,
+        internalType: 'bytes32',
+        name: 'tokenId',
+        type: 'bytes32'
+      },
+      {
+        indexed: false,
+        internalType: 'bytes',
+        name: 'operatorNotificationData',
+        type: 'bytes'
+      }
+    ],
+    name: 'AuthorizedOperator',
+    type: 'event'
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: 'bytes32',
+        name: 'dataKey',
+        type: 'bytes32'
+      },
+      {
+        indexed: false,
+        internalType: 'bytes',
+        name: 'dataValue',
+        type: 'bytes'
+      }
+    ],
+    name: 'DataChanged',
+    type: 'event'
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'previousOwner',
+        type: 'address'
+      },
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'newOwner',
+        type: 'address'
+      }
+    ],
+    name: 'OwnershipTransferred',
+    type: 'event'
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'operator',
+        type: 'address'
+      },
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'tokenOwner',
+        type: 'address'
+      },
+      {
+        indexed: true,
+        internalType: 'bytes32',
+        name: 'tokenId',
+        type: 'bytes32'
+      },
+      {
+        indexed: false,
+        internalType: 'bool',
+        name: 'notified',
+        type: 'bool'
+      },
+      {
+        indexed: false,
+        internalType: 'bytes',
+        name: 'operatorNotificationData',
+        type: 'bytes'
+      }
+    ],
+    name: 'RevokedOperator',
+    type: 'event'
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: 'address',
+        name: 'operator',
+        type: 'address'
+      },
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'from',
+        type: 'address'
+      },
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'to',
+        type: 'address'
+      },
+      {
+        indexed: true,
+        internalType: 'bytes32',
+        name: 'tokenId',
+        type: 'bytes32'
+      },
+      {
+        indexed: false,
+        internalType: 'bool',
+        name: 'force',
+        type: 'bool'
+      },
+      {
+        indexed: false,
+        internalType: 'bytes',
+        name: 'data',
+        type: 'bytes'
+      }
+    ],
+    name: 'Transfer',
+    type: 'event'
+  },
+  {
+    stateMutability: 'payable',
+    type: 'fallback'
+  },
+  {
+    inputs: [
+      {
         internalType: 'bytes32',
         name: 'sandwichId',
         type: 'bytes32'
       },
       {
         internalType: 'string',
-        name: 'ipfsHash',
+        name: 'metadataIPFSHash',
         type: 'string'
       }
     ],
@@ -68,11 +464,11 @@ export const EarthSandwichABI = [
       },
       {
         internalType: 'string',
-        name: 'finalIpfsHash',
+        name: 'finalMetadataIPFSHash',
         type: 'string'
       }
     ],
-    name: 'finalizeSandwichAndMintNFT',
+    name: 'finalizeAndMint',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function'
@@ -183,19 +579,29 @@ export const EarthSandwichABI = [
     name: 'getSandwichDetails',
     outputs: [
       {
+        internalType: 'string',
+        name: 'name',
+        type: 'string'
+      },
+      {
         internalType: 'address',
         name: 'owner',
         type: 'address'
       },
       {
-        internalType: 'address[]',
-        name: 'participants',
-        type: 'address[]'
-      },
-      {
         internalType: 'bool',
         name: 'isFinalized',
         type: 'bool'
+      },
+      {
+        internalType: 'address[]',
+        name: 'participantAddresses',
+        type: 'address[]'
+      },
+      {
+        internalType: 'string[]',
+        name: 'participantMetadata',
+        type: 'string[]'
       }
     ],
     stateMutability: 'view',
@@ -204,14 +610,19 @@ export const EarthSandwichABI = [
   {
     inputs: [
       {
-        internalType: 'address[]',
-        name: 'participants',
-        type: 'address[]'
+        internalType: 'string',
+        name: 'name',
+        type: 'string'
       },
       {
         internalType: 'bytes32',
         name: 'sandwichId',
         type: 'bytes32'
+      },
+      {
+        internalType: 'address[]',
+        name: 'participantAddresses',
+        type: 'address[]'
       }
     ],
     name: 'initiateSandwich',
@@ -244,6 +655,30 @@ export const EarthSandwichABI = [
     type: 'function'
   },
   {
+    inputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address'
+      },
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256'
+      }
+    ],
+    name: 'ownedSandwiches',
+    outputs: [
+      {
+        internalType: 'bytes32',
+        name: '',
+        type: 'bytes32'
+      }
+    ],
+    stateMutability: 'view',
+    type: 'function'
+  },
+  {
     inputs: [],
     name: 'owner',
     outputs: [
@@ -269,31 +704,7 @@ export const EarthSandwichABI = [
         type: 'uint256'
       }
     ],
-    name: 'ownerToSandwiches',
-    outputs: [
-      {
-        internalType: 'bytes32',
-        name: '',
-        type: 'bytes32'
-      }
-    ],
-    stateMutability: 'view',
-    type: 'function'
-  },
-  {
-    inputs: [
-      {
-        internalType: 'address',
-        name: '',
-        type: 'address'
-      },
-      {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256'
-      }
-    ],
-    name: 'participantToSandwiches',
+    name: 'participatedSandwiches',
     outputs: [
       {
         internalType: 'bytes32',
@@ -345,39 +756,15 @@ export const EarthSandwichABI = [
         internalType: 'bytes32',
         name: '',
         type: 'bytes32'
-      },
-      {
-        internalType: 'address',
-        name: '',
-        type: 'address'
-      }
-    ],
-    name: 'sandwichParticipants',
-    outputs: [
-      {
-        internalType: 'bool',
-        name: 'hasAccepted',
-        type: 'bool'
-      },
-      {
-        internalType: 'string',
-        name: 'ipfsHash',
-        type: 'string'
-      }
-    ],
-    stateMutability: 'view',
-    type: 'function'
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
-        name: '',
-        type: 'bytes32'
       }
     ],
     name: 'sandwiches',
     outputs: [
+      {
+        internalType: 'string',
+        name: 'name',
+        type: 'string'
+      },
       {
         internalType: 'address',
         name: 'owner',
