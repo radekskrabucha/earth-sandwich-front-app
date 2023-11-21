@@ -20,7 +20,9 @@ export const Header = () => (
           />
         </div>
       </Link>
-      <Button>Sign Up</Button>
+      <Button asChild>
+        <Link href={InternalLink.login}>log in</Link>
+      </Button>
     </div>
   </header>
 )
