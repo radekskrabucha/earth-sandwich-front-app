@@ -5,6 +5,7 @@ import { luksoTestnet } from '@/lib/walletChains'
 import type { HexString } from '@/types/common'
 import { getDateNowISOString } from '@/utils/date'
 import { client } from '@/utils/env'
+import { getErrorMessage } from '@/utils/error'
 
 type InitiateSandwichArgs = {
   name: string
@@ -30,6 +31,6 @@ export const useInitiateSandwich = () => {
         ]
       }),
     isLoading,
-    error
+    errorMessage: error ? getErrorMessage({ error }) : undefined
   }
 }
