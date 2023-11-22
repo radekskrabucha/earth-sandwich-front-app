@@ -1,6 +1,7 @@
 import { RestrictedProfileWrapper } from '@/components/RestrictedProfileWrapper'
 import { InternalLink } from '@/config/app'
 import type { ProfilePageProps } from '../profile/types'
+import { InvitesSection } from './components/InvitesSection'
 
 export const InvitesPage: React.FC<ProfilePageProps> = ({
   params: { address }
@@ -9,8 +10,6 @@ export const InvitesPage: React.FC<ProfilePageProps> = ({
     pushTo={InternalLink.profile(address, '')}
     address={address}
   >
-    <section className="layout-section">
-      <h2>Invites page</h2>
-    </section>
+    <InvitesSection address={address} />
   </RestrictedProfileWrapper>
 )
