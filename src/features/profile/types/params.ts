@@ -1,5 +1,7 @@
+import type { HexString } from '@/types/common'
+
 export type ProfilePageParams = {
-  address: string
+  address: HexString
 }
 
 export type ProfilePageProps = {
