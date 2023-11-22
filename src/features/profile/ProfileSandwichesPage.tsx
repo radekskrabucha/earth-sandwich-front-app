@@ -1,9 +1,8 @@
-import { readContract } from 'viem/actions'
+import { readContract } from '@wagmi/core'
 import { EarthSandwichABI } from '@/abi/EarthSandwichABI'
 import { Button } from '@/components/Button'
 import { Link } from '@/components/Link'
 import { InternalLink } from '@/config/app'
-import { viemClient } from '@/lib/viem'
 import type { HexString } from '@/types/common'
 import { client } from '@/utils/env'
 import { SandwichCard } from './components/SandwichCard'
@@ -12,7 +11,7 @@ import { type ProfilePageProps } from './types'
 export const ProfileSandwichesPage: React.FC<ProfilePageProps> = async ({
   params: { address }
 }) => {
-  const sandwiches = await readContract(viemClient, {
+  const sandwiches = await readContract({
     abi: EarthSandwichABI,
     functionName: 'getOwnedSandwiches',
     args: [address],

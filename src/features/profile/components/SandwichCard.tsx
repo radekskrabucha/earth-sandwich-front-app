@@ -1,6 +1,5 @@
-import { readContract } from 'viem/actions'
+import { readContract } from '@wagmi/core'
 import { EarthSandwichABI } from '@/abi/EarthSandwichABI'
-import { viemClient } from '@/lib/viem'
 import type { HexString } from '@/types/common'
 import { client } from '@/utils/env'
 
@@ -11,7 +10,7 @@ type SandwichCardProps = {
 export const SandwichCard: React.FC<SandwichCardProps> = async ({
   address
 }) => {
-  const sandwich = await readContract(viemClient, {
+  const sandwich = await readContract({
     abi: EarthSandwichABI,
     functionName: 'getSandwichDetails',
     args: [address],

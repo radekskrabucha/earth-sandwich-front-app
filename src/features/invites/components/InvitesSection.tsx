@@ -1,6 +1,5 @@
-import { readContract } from 'viem/actions'
+import { readContract } from '@wagmi/core'
 import { EarthSandwichABI } from '@/abi/EarthSandwichABI'
-import { viemClient } from '@/lib/viem'
 import type { HexString } from '@/types/common'
 import { client } from '@/utils/env'
 
@@ -11,7 +10,7 @@ type InvitesSectionProps = {
 export const InvitesSection: React.FC<InvitesSectionProps> = async ({
   address
 }) => {
-  const sandwichInvites = await readContract(viemClient, {
+  const sandwichInvites = await readContract({
     abi: EarthSandwichABI,
     functionName: 'getParticipatedSandwiches',
     args: [address],
