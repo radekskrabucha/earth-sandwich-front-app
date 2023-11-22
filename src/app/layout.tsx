@@ -1,6 +1,6 @@
 import { cx } from 'class-variance-authority'
 import { MainLayout } from '@/layout/MainLayout'
-import { WalletProvider } from '@/providers/Wallet'
+import { Providers } from '@/providers/Providers'
 import { MainFont, SecondaryFont } from '@/styles/fonts'
 import '@/styles/globals.css'
 
@@ -14,9 +14,9 @@ const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
       />
     </head>
     <body className={cx(MainFont.variable, SecondaryFont.variable)}>
-      <WalletProvider>
+      <Providers>
         <MainLayout>{children}</MainLayout>
-      </WalletProvider>
+      </Providers>
     </body>
   </html>
 )
