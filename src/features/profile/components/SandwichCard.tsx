@@ -1,29 +1,10 @@
-import { readContract } from 'viem/actions'
-import { EarthSandwichABI } from '@/abi/EarthSandwichABI'
-import { viemClient } from '@/lib/viem'
-import type { HexString } from '@/types/common'
-import { client } from '@/utils/env'
+import type { SandwichRaw } from '@/models/sandwich'
 
-type SandwichCardProps = {
-  address: HexString
-}
-
-export const SandwichCard: React.FC<SandwichCardProps> = async ({
-  address
-}) => {
-  const sandwich = await readContract(viemClient, {
-    abi: EarthSandwichABI,
-    functionName: 'getSandwichDetails',
-    args: [address],
-    address: client.NEXT_PUBLIC_EARTH_SANDWICH_CONTRACT_ADDRESS as HexString
-  })
-
-  return (
-    <div>
-      <h1>Sandwich Card</h1>
-      <pre>
-        <code>{JSON.stringify(sandwich, null, 2)}</code>
-      </pre>
+export const SandwichCard: React.FC<SandwichRaw> = ({ name, owner }) => (
+  <div className="flex flex-col items-center justify-center space-y-4 rounded-lg border p-4 shadow-md">
+    <div className="flex flex-col items-center space-y-2">
+      <div className="text-2xl font-bold">{name}</div>
+      <div className="text-sm text-gray-500">{owner}</div>
     </div>
-  )
-}
+  </div>
+)

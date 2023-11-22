@@ -7,6 +7,7 @@ import { viemClient } from '@/lib/viem'
 import type { HexString } from '@/types/common'
 import { client } from '@/utils/env'
 import { SandwichCard } from './components/SandwichCard'
+import { SandwichInfoWrapper } from './components/SandwichInfoWrapper'
 import { type ProfilePageProps } from './types'
 
 export const ProfileSandwichesPage: React.FC<ProfilePageProps> = async ({
@@ -19,8 +20,6 @@ export const ProfileSandwichesPage: React.FC<ProfilePageProps> = async ({
     address: client.NEXT_PUBLIC_EARTH_SANDWICH_CONTRACT_ADDRESS as HexString
   })
 
-  console.log('sandwiches', sandwiches)
-
   return (
     <section className="layout-section">
       <Button asChild>
@@ -31,12 +30,14 @@ export const ProfileSandwichesPage: React.FC<ProfilePageProps> = async ({
           <span className="text-2xl">+</span> create sandwich
         </Link>
       </Button>
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-2 gap-8">
         {sandwiches.map(sandwich => (
-          <SandwichCard
+          <SandwichInfoWrapper
             key={sandwich}
             address={sandwich}
-          />
+          >
+            {sandwich => <SandwichCard {...sandwich} />}
+          </SandwichInfoWrapper>
         ))}
       </div>
     </section>
