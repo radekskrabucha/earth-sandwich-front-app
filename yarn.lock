@@ -5731,6 +5731,11 @@ hosted-git-info@^4.0.1:
   dependencies:
     lru-cache "^6.0.0"
 
+houseform@1.11.1:
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/houseform/-/houseform-1.11.1.tgz#630e40108457720cf57744a12e03e5f53a066661"
+  integrity sha512-PiiiHEapwMgamfroePYTRNO2loPqkGS6VH+ZJx4aBw9uJf4/a9qn10tpuhdpl1RtS9O1m7cp7T+D72bbpaVyiw==
+
 http-cache-semantics@^4.0.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/http-cache-semantics/-/http-cache-semantics-4.1.1.tgz#abe02fcb2985460bf0323be664436ec3476a6d5a"

@@ -16,7 +16,7 @@ type AccountProps = {
 export const Account: React.FC<AccountProps> = ({ address }) => {
   const { data: profile } = useQuery({
     queryFn: () => getLSP3ProfileData(address),
-    queryKey: [QueryKey.upProfile, address]
+    queryKey: [QueryKey.getUpProfileData, address]
   })
 
   return (
