@@ -16,7 +16,7 @@ export const injectedConnector = new InjectedConnector({
 })
 
 export const wagmiConfig = createConfig({
-  autoConnect: true,
+  autoConnect: false,
   publicClient,
   webSocketPublicClient,
   connectors: [injectedConnector]

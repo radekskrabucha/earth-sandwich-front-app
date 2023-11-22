@@ -6,7 +6,7 @@ import { client } from '@/utils/env'
 const config = {
   ipfsGateway: client.NEXT_PUBLIC_IPFS_GATEWAY
 }
-const provider = client.NEXT_PUBLIC_LUKSO_RPC_RPC_URL
+const provider = client.NEXT_PUBLIC_LUKSO_RPC_URL
 
 export const getErc725Instance = (address: string) => {
   const erc725 = new ERC725(
