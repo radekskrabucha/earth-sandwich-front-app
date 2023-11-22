@@ -2,7 +2,7 @@ import { type Chain } from 'viem/chains'
 import { client } from '@/utils/env'
 
 export const luksoTestnet = {
-  id: 22,
+  id: 4201,
   name: 'Lukso Testnet',
   network: 'lukso',
   nativeCurrency: {
@@ -11,8 +11,14 @@ export const luksoTestnet = {
     symbol: 'LYXt'
   },
   rpcUrls: {
-    public: { http: [client.NEXT_PUBLIC_LUKSO_RPC_URL] },
-    default: { http: [client.NEXT_PUBLIC_LUKSO_RPC_URL] }
+    public: {
+      http: [client.NEXT_PUBLIC_LUKSO_RPC_URL],
+      webSocket: [client.NEXT_PUBLIC_LUKSO_WS_RPC_URL]
+    },
+    default: {
+      http: [client.NEXT_PUBLIC_LUKSO_RPC_URL],
+      webSocket: [client.NEXT_PUBLIC_LUKSO_WS_RPC_URL]
+    }
   },
   blockExplorers: {
     default: {
