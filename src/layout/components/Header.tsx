@@ -1,7 +1,7 @@
+import { Button } from '@/components/Button'
 import { Image } from '@/components/Image'
 import { Link } from '@/components/Link'
 import { AppName, InternalLink, Logo } from '@/config/app'
-import { WalletAccountWrapper } from './WalletAccountWrapper'
 
 export const Header = () => (
   <header className="layout-container sticky top-0 z-10 border-b border-b-white/10 bg-background/75 backdrop-blur-xl">
@@ -20,7 +20,7 @@ export const Header = () => (
           />
         </div>
       </Link>
-      <WalletAccountWrapper />
+      <Button>Sign Up</Button>
     </div>
   </header>
 )

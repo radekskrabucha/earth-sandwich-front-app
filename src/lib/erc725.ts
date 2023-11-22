@@ -1,12 +1,12 @@
 import ERC725, { type ERC725JSONSchema } from '@erc725/erc725.js'
 import { type GetDataDynamicKey } from '@erc725/erc725.js/build/main/src/types/GetData'
 import lsp3ProfileSchema from '@erc725/erc725.js/schemas/LSP3ProfileMetadata.json'
-import { client } from '@/utils/env'
+import { server } from '@/utils/env'
 
 const config = {
-  ipfsGateway: client.NEXT_PUBLIC_IPFS_GATEWAY
+  ipfsGateway: server.IPFS_GATEWAY
 }
-const provider = client.NEXT_PUBLIC_LUKSO_RPC_URL
+const provider = server.LUKSO_RPC_RPC_URL
 
 export const getErc725Instance = (address: string) => {
   const erc725 = new ERC725(

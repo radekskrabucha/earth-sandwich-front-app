@@ -1,11 +1,7 @@
 import { notFound } from 'next/navigation'
-import { InternalLink } from '@/config/app'
 import { createIpfsLink } from '@/utils/images'
 import { isEvmAddress } from '@/utils/regexes'
-import { ProfileBanner } from './components/ProfileBanner'
-import { ProfileTab } from './components/ProfileTab'
-import { ProfileTabs } from './components/ProfileTabs'
-import { UserMeTabs } from './components/UserMeTabs'
+import { ProfileBanner } from './components'
 import { type ProfilePageProps } from './types'
 import { getLSP3ProfileData } from './utils'
 
@@ -38,17 +34,6 @@ export const ProfileLayout: React.FC<
           createIpfsLink(profile.backgroundImage[0].url)
         }
       />
-      <ProfileTabs>
-        <ProfileTab
-          name="profile"
-          href={InternalLink.profile(address, '')}
-        />
-        <ProfileTab
-          name="sandwiches"
-          href={InternalLink.profile(address, '/sandwiches')}
-        />
-        <UserMeTabs address={address} />
-      </ProfileTabs>
       {children}
     </>
   )

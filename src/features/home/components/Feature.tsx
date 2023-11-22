@@ -1,4 +1,4 @@
-import { Image } from '@/components/Image'
+import Image from 'next/image'
 import { type ImageSrc } from '@/types/image'
 
 type FeatureProps = {
