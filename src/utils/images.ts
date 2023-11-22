@@ -1,6 +1,6 @@
 import { type ImageSrc } from '@/types/image'
 import nextConfig from '../../next.config.mjs'
-import { client } from './env'
+import { server } from './env'
 import { withHttpsProtocol } from './url'
 
 export const shouldOptimizeImage = (imageSrc: ImageSrc) =>
@@ -12,4 +12,4 @@ export const shouldOptimizeImage = (imageSrc: ImageSrc) =>
   )
 
 export const createIpfsLink = (url: string): string =>
-  url.replace('ipfs://', client.NEXT_PUBLIC_IPFS_GATEWAY)
+  url.replace('ipfs://', server.IPFS_GATEWAY)
