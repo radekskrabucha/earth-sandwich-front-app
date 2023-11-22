@@ -10,7 +10,10 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
   [publicProvider()]
 )
 
-export const injectedConnector = new InjectedConnector({ chains })
+export const injectedConnector = new InjectedConnector({
+  chains,
+  options: { name: 'UP browser extension' }
+})
 
 export const wagmiConfig = createConfig({
   autoConnect: true,
