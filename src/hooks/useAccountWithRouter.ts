@@ -12,7 +12,7 @@ export const useAccountWithRouter = () => {
     push,
     pushToLoginPage: () => push(InternalLink.login),
     getIsUserAccount: (userAddress: HexString) => address === userAddress,
-    getUserProfileLink: address
+    getUserMeProfileLink: address
       ? (segment?: ProfileSegment) =>
           InternalLink.profile(address, segment ?? '')
       : undefined
