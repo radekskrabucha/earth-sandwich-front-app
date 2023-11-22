@@ -1,6 +1,4 @@
-import Link from 'next/link'
 import { Button } from '@/components/Button'
-import { InternalLink } from '@/config/app'
 
 export const CallToActionSection = () => (
   <section className="layout-section items-center gap-8 text-center font-extrabold text-primary">
@@ -9,8 +7,6 @@ export const CallToActionSection = () => (
       Ready to time-travel through the world via sandwiches? What are you
       waiting for? The universe of sandwiches awaits!
     </p>
-    <Button asChild>
-      <Link href={InternalLink.login}>log in</Link>
-    </Button>
+    <Button>Sign Up</Button>
   </section>
 )
