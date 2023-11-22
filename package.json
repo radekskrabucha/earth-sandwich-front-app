@@ -24,6 +24,7 @@
     "@wagmi/core": "1.4.7",
     "class-variance-authority": "0.7.0",
     "framer-motion": "10.16.5",
+    "houseform": "1.11.1",
     "next": "14.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
