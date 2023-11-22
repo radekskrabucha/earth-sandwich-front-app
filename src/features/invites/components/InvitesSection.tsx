@@ -18,8 +18,6 @@ export const InvitesSection: React.FC<InvitesSectionProps> = async ({
     address: client.NEXT_PUBLIC_EARTH_SANDWICH_CONTRACT_ADDRESS as HexString
   })
 
-  console.log({ sandwichInvites })
-
   return (
     <section className="layout-section">
       <h2>Invites page</h2>
