@@ -9,6 +9,7 @@ export const InvitesPage: React.FC<ProfilePageProps> = ({
   <RestrictedProfileWrapper
     pushTo={InternalLink.profile(address, '')}
     address={address}
+    shouldMatchAddress
   >
     <InvitesSection address={address} />
   </RestrictedProfileWrapper>

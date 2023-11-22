@@ -11,6 +11,7 @@ export type ProfileSegment =
 export const InternalLink = {
   home: '/',
   login: '/login',
+  createSandwich: '/create-sandwich',
   profile: (address: HexString, segment: ProfileSegment) =>
     `/profile/${address}${segment}`
 } as const
