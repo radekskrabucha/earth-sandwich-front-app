@@ -1,7 +1,7 @@
 import { type VariantProps, cva } from 'class-variance-authority'
 import { cn } from '@/utils/styles'
 
-type StatusMessageProps = Pick<
+export type StatusMessageProps = Pick<
   React.ComponentProps<'p'>,
   'children' | 'className'
 > &
@@ -17,7 +17,7 @@ export const StatusMessage: React.FC<StatusMessageProps> = ({
   </p>
 )
 
-const statusMessageVariants = cva('text-sm', {
+export const statusMessageVariants = cva('text-sm', {
   variants: {
     variant: {
       info: 'text-zinc-700',

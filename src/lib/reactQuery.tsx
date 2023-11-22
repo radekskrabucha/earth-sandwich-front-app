@@ -17,5 +17,6 @@ export const queryClient = new QueryClient({
 })
 
 export const QueryKey = {
-  upProfile: 'upProfile'
+  // queries
+  getUpProfileData: 'getUpProfileData'
 } as const
