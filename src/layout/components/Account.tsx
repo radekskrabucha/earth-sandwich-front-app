@@ -20,7 +20,7 @@ export const Account: React.FC<AccountProps> = ({ address }) => {
   })
 
   return (
-    <Link href={InternalLink.me}>
+    <Link href={InternalLink.profile(address, '')}>
       <Avatar
         src={
           profile?.profileImage &&
