@@ -24,7 +24,7 @@ export const UserMeTabs: React.FC<UserMeTabsProps> = ({
     <>
       <ProfileTab
         name="invites"
-        href={InternalLink.profile(paramAddress, 'sandwich-invites')}
+        href={InternalLink.profile(paramAddress, '/sandwich-invites')}
       />
     </>
   )

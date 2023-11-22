@@ -45,7 +45,7 @@ export const ProfileLayout: React.FC<
         />
         <ProfileTab
           name="sandwiches"
-          href={InternalLink.profile(address, 'sandwiches')}
+          href={InternalLink.profile(address, '/sandwiches')}
         />
         <UserMeTabs address={address} />
       </ProfileTabs>
