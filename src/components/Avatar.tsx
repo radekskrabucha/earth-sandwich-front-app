@@ -6,18 +6,13 @@ import { IconWrapper } from './IconWrapper'
 import { Image } from './Image'
 
 type AvatarProps = {
-  avatarProps: Omit<ImageProps, 'src'>
+  avatarProps?: Omit<ImageProps, 'src'>
   src: Undefinable<ImageSrc>
 }
 
 export const Avatar: React.FC<WithClassName<AvatarProps>> = ({
   className,
-  avatarProps: {
-    alt = '',
-    className: avatarClassName,
-    fill = true,
-    ...avatarProps
-  },
+  avatarProps,
   src = AvatarPlaceholder
 }) => (
   <IconWrapper
@@ -28,10 +23,10 @@ export const Avatar: React.FC<WithClassName<AvatarProps>> = ({
   >
     <Image
       src={src}
-      alt={alt}
-      fill={fill}
+      alt={avatarProps?.alt || ''}
+      fill={avatarProps?.fill || true}
       {...avatarProps}
-      className={cn('object-cover object-center', avatarClassName)}
+      className={cn('object-cover object-center', avatarProps?.className)}
     />
   </IconWrapper>
 )

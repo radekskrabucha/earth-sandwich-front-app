@@ -13,7 +13,7 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
 export const injectedConnector = new InjectedConnector({ chains })
 
 export const wagmiConfig = createConfig({
-  autoConnect: false,
+  autoConnect: true,
   publicClient,
   webSocketPublicClient,
   connectors: [injectedConnector]
