@@ -6,7 +6,7 @@ import { Link } from '@/components/Link'
 import { InternalLink } from '@/config/app'
 import { QueryKey } from '@/lib/reactQuery'
 import type { HexString } from '@/types/common'
-import { createIpfsLink } from '@/utils/images'
+import { createIpfsLink } from '@/utils/ipfs'
 import { getLSP3ProfileData } from '@/utils/profile'
 
 type AccountProps = {
