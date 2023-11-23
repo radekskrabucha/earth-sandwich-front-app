@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation'
 import { InternalLink } from '@/config/app'
-import { createIpfsLink } from '@/utils/images'
 import { isEvmAddress } from '@/utils/regexes'
 import { ProfileBanner } from './components/ProfileBanner'
 import { ProfileInfoWrapper } from './components/ProfileInfoWrapper'
@@ -24,16 +23,8 @@ export const ProfileLayout: React.FC<
             <ProfileBanner
               description={profile.description}
               name={profile.name}
-              avatar={
-                profile.profileImage &&
-                profile.profileImage[0] &&
-                createIpfsLink(profile.profileImage?.[0].url)
-              }
-              background={
-                profile.backgroundImage &&
-                profile.backgroundImage[0] &&
-                createIpfsLink(profile.backgroundImage[0].url)
-              }
+              avatar={profile.profileImageUrl}
+              background={profile.backgroundImageUrl}
             />
             <ProfileTabs>
               <ProfileTab
