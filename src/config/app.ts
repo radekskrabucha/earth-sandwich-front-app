@@ -13,7 +13,8 @@ export const InternalLink = {
   login: '/login',
   createSandwich: '/create-sandwich',
   profile: (address: HexString, segment: ProfileSegment) =>
-    `/profile/${address}${segment}`
+    `/profile/${address}${segment}`,
+  sandwichDetails: (id: HexString) => `/sandwich/${id}`
 } as const
 
 export const ExternalLink = {} as const
