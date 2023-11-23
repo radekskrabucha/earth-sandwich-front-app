@@ -22,7 +22,7 @@ export const AcceptInvitationPage: React.FC<SandwichDetailsPageProps> = ({
           },
           description: {
             children:
-              'Someones has invited you to make sandwich with them! Fill out the form below to accept the invitation and make sandwich together.'
+              'You have an invitation to make sandwich! Add your photo, accept the invitation and make sandwich together!'
           },
           icon: {
             children: (

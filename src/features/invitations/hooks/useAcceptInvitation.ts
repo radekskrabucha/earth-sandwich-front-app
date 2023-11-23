@@ -7,11 +7,12 @@ import { getErrorMessage } from '@/utils/error'
 
 type AcceptInvitationArgs = {
   id: HexString
-  metadataIPFSHash: string
+  location: string
+  image?: File
 }
 
 export const useAcceptInvitation = () => {
-  const { isLoading, error, write, isSuccess, data } = useContractWrite({
+  const { isLoading, error, isSuccess, data } = useContractWrite({
     abi: EarthSandwichABI,
     address: client.NEXT_PUBLIC_EARTH_SANDWICH_CONTRACT_ADDRESS as HexString,
     functionName: 'acceptInvitation',
@@ -23,9 +24,10 @@ export const useAcceptInvitation = () => {
     errorMessage: error ? getErrorMessage({ error }) : undefined,
     isSuccess,
     data,
-    acceptInvitation: ({ id, metadataIPFSHash }: AcceptInvitationArgs) =>
-      write({
-        args: [id, metadataIPFSHash]
-      })
+    acceptInvitation: ({ id, location, image }: AcceptInvitationArgs) => {
+      console.log('acceptInvitation', { id, location, image })
+
+      return
+    }
   }
 }
