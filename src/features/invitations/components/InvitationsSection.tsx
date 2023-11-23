@@ -4,17 +4,17 @@ import { SandwichInfoWrapper } from '@/features/sandwich/components/SandwichInfo
 import { viemClient } from '@/lib/viem'
 import type { HexString } from '@/types/common'
 import { client } from '@/utils/env'
-import { NoInvitesInfo } from './NoInvitesInfo'
-import { SandwichInviteCard } from './SandwichInviteCard'
+import { NoInvitationsInfo } from './NoInvitationsInfo'
+import { SandwichInviteCard } from './SandwichInvitationsCard'
 
-type InvitesSectionProps = {
+type InvitationsSectionProps = {
   address: HexString
 }
 
-export const InvitesSection: React.FC<InvitesSectionProps> = async ({
+export const InvitationsSection: React.FC<InvitationsSectionProps> = async ({
   address
 }) => {
-  const sandwichInvites = await readContract(viemClient, {
+  const sandwichInvitations = await readContract(viemClient, {
     abi: EarthSandwichABI,
     functionName: 'getUnmintedSandwichesByParticipant',
     args: [address],
@@ -23,19 +23,19 @@ export const InvitesSection: React.FC<InvitesSectionProps> = async ({
 
   return (
     <section className="layout-section gap-8">
-      {sandwichInvites?.length > 0 ? (
+      {sandwichInvitations?.length > 0 ? (
         <>
           <div className="flex flex-col items-center gap-4 text-center">
             <h3 className="font-main text-2xl text-primary">
               You have been invited to cook some sandwiches 👀
             </h3>
             <p>
-              Check your invites and cook some sandwiches and make the best
+              Check your invitations and cook some sandwiches and make the best
               sandwich memories!
             </p>
           </div>
           <div className="flex flex-col items-center gap-6">
-            {sandwichInvites.map(sandwichAddress => (
+            {sandwichInvitations.map(sandwichAddress => (
               <SandwichInfoWrapper
                 key={sandwichAddress}
                 address={sandwichAddress}
@@ -51,7 +51,7 @@ export const InvitesSection: React.FC<InvitesSectionProps> = async ({
           </div>
         </>
       ) : (
-        <NoInvitesInfo />
+        <NoInvitationsInfo />
       )}
     </section>
   )
