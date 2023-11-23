@@ -3,12 +3,12 @@ import { EarthSandwichABI } from '@/abi/EarthSandwichABI'
 import { Button } from '@/components/Button'
 import { Link } from '@/components/Link'
 import { InternalLink } from '@/config/app'
+import type { ProfilePageProps } from '@/features/profile/types'
 import { viemClient } from '@/lib/viem'
 import type { HexString } from '@/types/common'
 import { client } from '@/utils/env'
 import { SandwichCard } from './components/SandwichCard'
 import { SandwichInfoWrapper } from './components/SandwichInfoWrapper'
-import { type ProfilePageProps } from './types'
 
 export const ProfileSandwichesPage: React.FC<ProfilePageProps> = async ({
   params: { address }
