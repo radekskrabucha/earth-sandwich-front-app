@@ -17,6 +17,10 @@ export const queryClient = new QueryClient({
 })
 
 export const QueryKey = {
-  // queries
   getUpProfileData: 'getUpProfileData'
+} as const
+
+export const MutationKey = {
+  uploadIPFSImage: 'uploadIPFSImage',
+  uploadIPFSMetadata: 'uploadIPFSMetadata'
 } as const

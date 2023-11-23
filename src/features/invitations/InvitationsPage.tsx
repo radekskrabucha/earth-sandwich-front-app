@@ -1,9 +1,9 @@
 import { RestrictedProfileWrapper } from '@/components/RestrictedProfileWrapper'
 import { InternalLink } from '@/config/app'
 import type { ProfilePageProps } from '../profile/types'
-import { InvitesSection } from './components/InvitesSection'
+import { InvitationsSection } from './components/InvitationsSection'
 
-export const InvitesPage: React.FC<ProfilePageProps> = ({
+export const InvitationsPage: React.FC<ProfilePageProps> = ({
   params: { address }
 }) => (
   <RestrictedProfileWrapper
@@ -11,6 +11,6 @@ export const InvitesPage: React.FC<ProfilePageProps> = ({
     address={address}
     shouldMatchAddress
   >
-    <InvitesSection address={address} />
+    <InvitationsSection address={address} />
   </RestrictedProfileWrapper>
 )

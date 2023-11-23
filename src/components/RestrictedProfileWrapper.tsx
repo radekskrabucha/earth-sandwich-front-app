@@ -2,7 +2,7 @@
 
 import type React from 'react'
 import { useAccountWithRouter } from '@/hooks/useAccountWithRouter'
-import type { HexString } from '@/types/common'
+import type { HexString, Undefinable } from '@/types/common'
 import { getIsWindowLocationDefined } from '@/utils/common'
 
 type ConditionalProfileWrapperProps =
@@ -18,7 +18,7 @@ type ConditionalProfileWrapperProps =
     }
 
 type RestrictedProfileWrapperProps = {
-  pushTo: string
+  pushTo: Undefinable<string>
   shouldPassCondition?: boolean
 } & ConditionalProfileWrapperProps
 
@@ -46,12 +46,12 @@ export const RestrictedProfileWrapper: React.FC<
     getIsWindowLocationDefined() &&
     !getIsUserAccount(address)
   ) {
-    push(pushTo)
+    pushTo && push(pushTo)
 
     return null
   }
   if (shouldBeConnected && getIsWindowLocationDefined() && !walletAddress) {
-    push(pushTo)
+    pushTo && push(pushTo)
 
     return null
   }
