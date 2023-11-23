@@ -1,13 +1,21 @@
+import { cx } from 'class-variance-authority'
+import { ParticipantInfoWrapper } from '@/components/ParticipantInfoWrapper'
 import { ProfileInfoWrapper } from '@/components/ProfileInfoWrapper'
 import { RestrictedProfileWrapper } from '@/components/RestrictedProfileWrapper'
 import { InternalLink } from '@/config/app'
 import type { SandwichRaw } from '@/models/sandwich'
+import type { HexString } from '@/types/common'
 import { SandwichUser } from './SandwichUser'
 
-export const PendingSandwichDetails: React.FC<SandwichRaw> = ({
+type PendingSandwichDetailsProps = {
+  sandwichId: HexString
+} & SandwichRaw
+
+export const PendingSandwichDetails: React.FC<PendingSandwichDetailsProps> = ({
   owner,
   name,
-  participantAddresses
+  participantAddresses,
+  sandwichId
 }) => (
   <RestrictedProfileWrapper
     pushTo={InternalLink.profile(owner, '')}
@@ -48,18 +56,28 @@ export const PendingSandwichDetails: React.FC<SandwichRaw> = ({
             >
               {profile =>
                 profile ? (
-                  <SandwichUser
-                    avatar={{
-                      src: profile.profileImageUrl,
-                      className: 'border-4 border-white/30 h-32 w-32',
-                      avatarProps: {
-                        alt: profile.name
-                      }
-                    }}
-                    name={profile.name}
-                    address={address}
-                    label="pending"
-                  />
+                  <ParticipantInfoWrapper
+                    participantAddress={address}
+                    sandwichId={sandwichId}
+                  >
+                    {({ hasAccepted }) => (
+                      <SandwichUser
+                        avatar={{
+                          src: profile.profileImageUrl,
+                          className: cx(
+                            'border-4 h-32 w-32',
+                            hasAccepted ? 'border-primary' : 'border-white/30'
+                          ),
+                          avatarProps: {
+                            alt: profile.name
+                          }
+                        }}
+                        name={profile.name}
+                        address={address}
+                        label={hasAccepted ? 'accepted' : 'pending'}
+                      />
+                    )}
+                  </ParticipantInfoWrapper>
                 ) : null
               }
             </ProfileInfoWrapper>
@@ -68,7 +86,7 @@ export const PendingSandwichDetails: React.FC<SandwichRaw> = ({
       </div>
 
       <p className="max-w-md text-white/50">
-        This sandwich is not finalized yet. You can see the participants below.
+        This sandwich is not finalized yet. You can see the participants above.
         If you are one of them, you can accept the sandwich invitation by
         clicking the{' '}
         <strong className="font-bold text-white">Accept button</strong> below.

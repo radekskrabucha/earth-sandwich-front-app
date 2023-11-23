@@ -12,7 +12,10 @@ export const SandwichDetailsPageLayout: React.FC<
         sandwich.isFinalized ? (
           <SandwichDetailsSection {...sandwich} />
         ) : (
-          <PendingSandwichDetails {...sandwich} />
+          <PendingSandwichDetails
+            {...sandwich}
+            sandwichId={id}
+          />
         )
       }
     </SandwichInfoWrapper>
