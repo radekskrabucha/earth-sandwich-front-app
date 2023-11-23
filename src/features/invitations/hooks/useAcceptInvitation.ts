@@ -6,17 +6,23 @@ import { client } from '@/utils/env'
 import { getErrorMessage } from '@/utils/error'
 
 type AcceptInvitationArgs = {
-  id: HexString
-  location: string
-  image?: File
+  sandwichId: HexString
+  metadataIPFSHash: string
 }
 
-export const useAcceptInvitation = () => {
-  const { isLoading, error, isSuccess, data } = useContractWrite({
+type UseAcceptInvitationArgs = {
+  onSuccess?: (txHash: HexString) => void
+}
+
+export const useAcceptInvitation = ({ onSuccess }: UseAcceptInvitationArgs) => {
+  const { isLoading, error, isSuccess, data, write } = useContractWrite({
     abi: EarthSandwichABI,
     address: client.NEXT_PUBLIC_EARTH_SANDWICH_CONTRACT_ADDRESS as HexString,
     functionName: 'acceptInvitation',
-    chainId: luksoTestnet.id
+    chainId: luksoTestnet.id,
+    onSuccess: data => {
+      onSuccess?.(data.hash)
+    }
   })
 
   return {
@@ -24,10 +30,17 @@ export const useAcceptInvitation = () => {
     errorMessage: error ? getErrorMessage({ error }) : undefined,
     isSuccess,
     data,
-    acceptInvitation: ({ id, location, image }: AcceptInvitationArgs) => {
-      console.log('acceptInvitation', { id, location, image })
+    acceptInvitation: ({
+      sandwichId,
+      metadataIPFSHash
+    }: AcceptInvitationArgs) => {
+      console.log('accepted Invitation!!', { sandwichId, metadataIPFSHash })
 
       return
+
+      return write({
+        args: [sandwichId, metadataIPFSHash]
+      })
     }
   }
 }

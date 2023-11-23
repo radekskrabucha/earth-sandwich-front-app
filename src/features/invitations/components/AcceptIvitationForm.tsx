@@ -30,6 +30,7 @@ export const AcceptInvitationForm: React.FC<AcceptInvitationFormProps> = ({
         name="photo"
         onChangeValue={setImage}
         value={image}
+        disabled={isLoading}
       />
 
       <Button
