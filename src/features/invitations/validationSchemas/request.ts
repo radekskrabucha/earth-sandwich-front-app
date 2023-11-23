@@ -7,12 +7,7 @@ export const uploadIPFSImageReqSchema = z.object({
 export type UploadIPFSImageReqSchema = z.infer<typeof uploadIPFSImageReqSchema>
 
 export const uploadIPFSSandwichMetadataReqSchema = z.object({
-  location: z.object({
-    lat: z.number(),
-    long: z.number()
-  }),
-  timestamp: z.number(),
-  imageIPFSHash: z.string().optional()
+  file: z.any().refine(file => file instanceof Blob)
 })
 
 export type UploadIPFSSandwichMetadataReqSchema = z.infer<

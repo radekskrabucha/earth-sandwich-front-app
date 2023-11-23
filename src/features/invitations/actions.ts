@@ -20,11 +20,12 @@ export const uploadIPFSImage = (req: UploadIPFSImageReqSchema) =>
       method: 'post',
       url: '/pinning/pinFileToIPFS',
       req,
-      axiosClient: 'pinata'
-    },
-    {
-      timeout: 2000,
-      mockData: 'test-string-response-image-upload-IPFS'
+      axiosClient: 'pinata',
+      config: {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }
     }
   )
 export const uploadIPFSSandwichMetadata = (
@@ -39,10 +40,11 @@ export const uploadIPFSSandwichMetadata = (
       method: 'post',
       url: '/pinning/pinFileToIPFS',
       req,
-      axiosClient: 'pinata'
-    },
-    {
-      timeout: 2000,
-      mockData: 'test-string-response-sandwich-metadata-upload-IPFS'
+      axiosClient: 'pinata',
+      config: {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }
     }
   )

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { HexString } from '@/types/common'
+import { getIpfsImageFile, getIpfsJSONFile } from '@/utils/ipfs'
 import { useAcceptInvitation } from './useAcceptInvitation'
 import { useUploadIPFSImage } from './useUploadIPFSImage'
 import { useUploadIPFSMetadata } from './useUploadIPFSMetadata'
@@ -39,14 +40,16 @@ export const useAcceptInvitationForm = (sandwichId: HexString) => {
   } = useUploadIPFSImage({
     onSuccess: ipfsHash => {
       console.log('upload image success!!', ipfsHash)
-      uploadIPFSMetadata({
-        location: {
-          lat: 0,
-          long: 0
-        },
-        timestamp: Date.now(),
-        imageIPFSHash: ipfsHash
-      })
+      uploadIPFSMetadata(
+        getIpfsJSONFile({
+          location: {
+            lat: 0,
+            long: 0
+          },
+          timestamp: Date.now(),
+          imageIPFSHash: ipfsHash
+        })
+      )
     }
   })
 
@@ -54,19 +57,20 @@ export const useAcceptInvitationForm = (sandwichId: HexString) => {
     image,
     setImage,
     onSubmit: () => {
-      if (!image) {
-        return uploadIPFSMetadata({
+      // TODO: get location
+      if (typeof image !== 'string' && image) {
+        return uploadIPFSImage(getIpfsImageFile(image))
+      }
+
+      return uploadIPFSMetadata(
+        getIpfsJSONFile({
           location: {
             lat: 0,
             long: 0
           },
           timestamp: Date.now()
         })
-      }
-
-      uploadIPFSImage({
-        file: image
-      })
+      )
     },
     isLoading:
       isUploadIPFSImageLoading ||

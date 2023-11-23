@@ -12,7 +12,7 @@ export const useUploadIPFSImage = ({ onSuccess }: UploadIPFSImageArgs) => {
     mutationKey: [MutationKey.uploadIPFSImage],
     mutationFn: uploadIPFSImage,
     onSuccess(data) {
-      onSuccess?.(data)
+      onSuccess?.(`ipfs://${data.IpfsHash}`)
     }
   })
 

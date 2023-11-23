@@ -14,7 +14,7 @@ export const useUploadIPFSMetadata = ({
     mutationKey: [MutationKey.uploadIPFSMetadata],
     mutationFn: uploadIPFSSandwichMetadata,
     onSuccess(data) {
-      onSuccess?.(data)
+      onSuccess?.(`ipfs://${data.IpfsHash}`)
     }
   })
 

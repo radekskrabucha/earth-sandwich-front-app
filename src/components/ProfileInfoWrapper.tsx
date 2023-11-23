@@ -2,7 +2,7 @@
 
 import type { UPProfile } from '@/models/profile'
 import type { HexString } from '@/types/common'
-import { createIpfsLink } from '@/utils/images'
+import { createIpfsLink } from '@/utils/ipfs'
 import { getLSP3ProfileData } from '@/utils/profile'
 
 type ProfileInfoWrapperProps = {

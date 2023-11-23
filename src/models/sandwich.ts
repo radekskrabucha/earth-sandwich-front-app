@@ -15,7 +15,7 @@ export type SandwichParticipant = {
 
 export type Location = {
   lat: number
-  lng: number
+  long: number
 }
 
 export type SandwichParticipantMetadata = {
