@@ -7,7 +7,7 @@ export type ProfileSegment =
   | '/followers'
   | '/following'
   | '/sandwich-invitations'
-export type SandwichDetailsSegment = '' | '/mint' | '/accept-invite'
+export type SandwichDetailsSegment = '' | '/mint' | '/accept-invitation'
 
 export const InternalLink = {
   home: '/',

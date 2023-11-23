@@ -12,7 +12,7 @@ export const SandwichDetailsPage: React.FC<SandwichDetailsPageProps> = ({
         asChild
         variant="primary"
       >
-        <Link href={InternalLink.sandwichDetails(id, '/accept-invite')}>
+        <Link href={InternalLink.sandwichDetails(id, '/accept-invitation')}>
           Accept
         </Link>
       </Button>

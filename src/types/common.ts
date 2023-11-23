@@ -1,4 +1,4 @@
-export type WithClassName<T = Record<string, never>> = {
+export type WithClassName<T = object> = {
   className?: string
 } & T
 
