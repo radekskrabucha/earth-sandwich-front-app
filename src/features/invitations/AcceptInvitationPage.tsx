@@ -3,7 +3,7 @@ import { Icon } from '@/components/Icon'
 import { Link } from '@/components/Link'
 import { Modal, ModalContentWrapper } from '@/components/modal'
 import { InternalLink } from '@/config/app'
-import type { SandwichDetailsPageProps } from '../sandwichDetails/types'
+import type { SandwichDetailsPageProps } from '@/features/sandwichDetails/types'
 
 export const AcceptInvitationPage: React.FC<SandwichDetailsPageProps> = ({
   params: { id }
