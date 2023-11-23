@@ -18,7 +18,7 @@ export const SandwichInviteCard: React.FC<SandwichInviteCardProps> = ({
   sandwichAddress
 }) => (
   <Link
-    href={InternalLink.sandwichDetails(sandwichAddress)}
+    href={InternalLink.sandwichDetails(sandwichAddress, '')}
     className="flex w-full max-w-sm items-center gap-4 rounded-xl border-2 border-primary bg-secondary px-8 py-6 text-background"
   >
     <div className="flex flex-1 flex-col gap-4">
