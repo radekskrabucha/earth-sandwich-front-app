@@ -31,7 +31,7 @@ export const ImageInput = React.forwardRef<HTMLInputElement, ImageInputProps>(
     <div className="flex flex-col gap-2">
       <label
         className={cn(
-          'relative flex h-20 w-20 flex-shrink-0 cursor-pointer items-start justify-end overflow-hidden rounded-xl border-2 border-primary bg-transparent p-1 transition-colors disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',
+          'relative flex h-36 w-36 flex-shrink-0 cursor-pointer items-start justify-end overflow-hidden rounded-xl border-2 border-primary bg-transparent p-1 transition-colors disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',
           Boolean(errorMessage) && 'border-error',
           !value && 'border-dashed bg-white/10',
           className

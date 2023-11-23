@@ -14,7 +14,7 @@ type AcceptInvitationFormProps = {
 export const AcceptInvitationForm: React.FC<AcceptInvitationFormProps> = ({
   sandwichId
 }) => {
-  const { image, setImage, onSubmit, data, errorMessage, isLoading } =
+  const { image, setImage, onSubmit, data, errorMessage, isLoading, disabled } =
     useAcceptInvitationForm(sandwichId)
 
   return (
@@ -23,7 +23,7 @@ export const AcceptInvitationForm: React.FC<AcceptInvitationFormProps> = ({
         e.preventDefault()
         onSubmit()
       }}
-      className="flex flex-col gap-6"
+      className="flex flex-col gap-8"
     >
       <ImageInput
         id="photo"
@@ -31,11 +31,12 @@ export const AcceptInvitationForm: React.FC<AcceptInvitationFormProps> = ({
         onChangeValue={setImage}
         value={image}
         disabled={isLoading}
+        className="self-center"
       />
 
       <Button
         type="submit"
-        disabled={isLoading}
+        disabled={isLoading || disabled}
       >
         {isLoading && <LoaderCircle />}
         accept

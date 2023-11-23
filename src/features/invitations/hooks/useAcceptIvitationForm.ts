@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useGeolocation } from '@/hooks/useGeolocation'
 import type { HexString } from '@/types/common'
 import { getIpfsImageFile, getIpfsJSONFile } from '@/utils/ipfs'
 import { useAcceptInvitation } from './useAcceptInvitation'
@@ -6,6 +7,12 @@ import { useUploadIPFSImage } from './useUploadIPFSImage'
 import { useUploadIPFSMetadata } from './useUploadIPFSMetadata'
 
 export const useAcceptInvitationForm = (sandwichId: HexString) => {
+  const { error, loading, latitude, longitude, timestamp } = useGeolocation({
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+  })
+
   const [image, setImage] = useState<File | string>('')
 
   const {
@@ -25,7 +32,6 @@ export const useAcceptInvitationForm = (sandwichId: HexString) => {
     upload: uploadIPFSMetadata
   } = useUploadIPFSMetadata({
     onSuccess: metadataIPFSHash => {
-      console.log('upload metadata success!!', metadataIPFSHash)
       acceptInvitation({
         sandwichId,
         metadataIPFSHash
@@ -39,44 +45,49 @@ export const useAcceptInvitationForm = (sandwichId: HexString) => {
     upload: uploadIPFSImage
   } = useUploadIPFSImage({
     onSuccess: ipfsHash => {
-      console.log('upload image success!!', ipfsHash)
-      uploadIPFSMetadata(
-        getIpfsJSONFile({
-          location: {
-            lat: 0,
-            long: 0
-          },
-          timestamp: Date.now(),
-          imageIPFSHash: ipfsHash
-        })
-      )
+      if (latitude && longitude && timestamp) {
+        uploadIPFSMetadata(
+          getIpfsJSONFile({
+            location: {
+              lat: latitude,
+              long: longitude
+            },
+            timestamp,
+            imageIPFSHash: ipfsHash
+          })
+        )
+      }
     }
   })
 
   return {
+    disabled: Boolean(error) || !latitude || !longitude || !timestamp,
     image,
     setImage,
     onSubmit: () => {
-      // TODO: get location
       if (typeof image !== 'string' && image) {
         return uploadIPFSImage(getIpfsImageFile(image))
       }
-
-      return uploadIPFSMetadata(
-        getIpfsJSONFile({
-          location: {
-            lat: 0,
-            long: 0
-          },
-          timestamp: Date.now()
-        })
-      )
+      if (latitude && longitude && timestamp) {
+        return uploadIPFSMetadata(
+          getIpfsJSONFile({
+            location: {
+              lat: latitude,
+              long: longitude
+            },
+            timestamp
+          })
+        )
+      }
     },
     isLoading:
+      loading ||
       isUploadIPFSImageLoading ||
       isUploadIPFSMetadataLoading ||
       isAcceptLoading,
     errorMessage:
+      (error &&
+        `${error.message}. Please allow geolocation service in order to make a sandwich.`) ||
       uploadIPFSImageErrorMessage ||
       uploadIPFSMetadataErrorMessage ||
       acceptErrorMessage,
