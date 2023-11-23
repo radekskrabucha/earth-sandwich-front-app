@@ -13,7 +13,8 @@ import {
 } from '../schemas/form'
 
 export const CreateSandwichForm = () => {
-  const { initiateSandwich, isLoading, errorMessage } = useInitiateSandwich()
+  const { initiateSandwich, isLoading, errorMessage, data } =
+    useInitiateSandwich()
 
   return (
     <section className="layout-section max-w-lg rounded-3xl border border-secondary/50 bg-black/10">
@@ -81,6 +82,11 @@ export const CreateSandwichForm = () => {
             {errorMessage && (
               <AnimatedStatusMessage variant="error">
                 {errorMessage}
+              </AnimatedStatusMessage>
+            )}
+            {data && (
+              <AnimatedStatusMessage variant="success">
+                Sandwich created! 🥪 Let's get cooking!
               </AnimatedStatusMessage>
             )}
           </form>

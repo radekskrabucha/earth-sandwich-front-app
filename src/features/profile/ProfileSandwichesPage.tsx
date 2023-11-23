@@ -15,7 +15,7 @@ export const ProfileSandwichesPage: React.FC<ProfilePageProps> = async ({
 }) => {
   const sandwiches = await readContract(viemClient, {
     abi: EarthSandwichABI,
-    functionName: 'getOwnedSandwiches',
+    functionName: 'getMintedSandwichesByOwner',
     args: [address],
     address: client.NEXT_PUBLIC_EARTH_SANDWICH_CONTRACT_ADDRESS as HexString
   })

@@ -514,6 +514,44 @@ export const EarthSandwichABI = [
   {
     inputs: [
       {
+        internalType: 'address',
+        name: 'owner',
+        type: 'address'
+      }
+    ],
+    name: 'getMintedSandwichesByOwner',
+    outputs: [
+      {
+        internalType: 'bytes32[]',
+        name: '',
+        type: 'bytes32[]'
+      }
+    ],
+    stateMutability: 'view',
+    type: 'function'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'participant',
+        type: 'address'
+      }
+    ],
+    name: 'getMintedSandwichesByParticipant',
+    outputs: [
+      {
+        internalType: 'bytes32[]',
+        name: '',
+        type: 'bytes32[]'
+      }
+    ],
+    stateMutability: 'view',
+    type: 'function'
+  },
+  {
+    inputs: [
+      {
         internalType: 'bytes32',
         name: 'tokenId',
         type: 'bytes32'
@@ -610,6 +648,68 @@ export const EarthSandwichABI = [
   {
     inputs: [
       {
+        internalType: 'address',
+        name: 'owner',
+        type: 'address'
+      }
+    ],
+    name: 'getUnmintedSandwichesByOwner',
+    outputs: [
+      {
+        internalType: 'bytes32[]',
+        name: '',
+        type: 'bytes32[]'
+      }
+    ],
+    stateMutability: 'view',
+    type: 'function'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'participant',
+        type: 'address'
+      }
+    ],
+    name: 'getUnmintedSandwichesByParticipant',
+    outputs: [
+      {
+        internalType: 'bytes32[]',
+        name: '',
+        type: 'bytes32[]'
+      }
+    ],
+    stateMutability: 'view',
+    type: 'function'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'sandwichId',
+        type: 'bytes32'
+      },
+      {
+        internalType: 'address',
+        name: 'participant',
+        type: 'address'
+      }
+    ],
+    name: 'hasParticipantAccepted',
+    outputs: [
+      {
+        internalType: 'bool',
+        name: '',
+        type: 'bool'
+      }
+    ],
+    stateMutability: 'view',
+    type: 'function'
+  },
+  {
+    inputs: [
+      {
         internalType: 'string',
         name: 'name',
         type: 'string'
@@ -644,6 +744,25 @@ export const EarthSandwichABI = [
       }
     ],
     name: 'isOperatorFor',
+    outputs: [
+      {
+        internalType: 'bool',
+        name: '',
+        type: 'bool'
+      }
+    ],
+    stateMutability: 'view',
+    type: 'function'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: '',
+        type: 'bytes32'
+      }
+    ],
+    name: 'isSandwichMinted',
     outputs: [
       {
         internalType: 'bool',

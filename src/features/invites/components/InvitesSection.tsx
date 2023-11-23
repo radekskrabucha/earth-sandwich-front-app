@@ -13,7 +13,7 @@ export const InvitesSection: React.FC<InvitesSectionProps> = async ({
 }) => {
   const sandwichInvites = await readContract(viemClient, {
     abi: EarthSandwichABI,
-    functionName: 'getParticipatedSandwiches',
+    functionName: 'getUnmintedSandwichesByParticipant',
     args: [address],
     address: client.NEXT_PUBLIC_EARTH_SANDWICH_CONTRACT_ADDRESS as HexString
   })
