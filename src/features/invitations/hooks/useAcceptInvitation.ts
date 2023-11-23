@@ -34,11 +34,7 @@ export const useAcceptInvitation = ({ onSuccess }: UseAcceptInvitationArgs) => {
       sandwichId,
       metadataIPFSHash
     }: AcceptInvitationArgs) => {
-      console.log('accepted Invitation!!', { sandwichId, metadataIPFSHash })
-
-      return
-
-      return write({
+      write({
         args: [sandwichId, metadataIPFSHash]
       })
     }
