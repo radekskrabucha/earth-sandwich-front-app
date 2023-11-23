@@ -38,7 +38,7 @@ export const RestrictedProfileWrapper: React.FC<
     address: walletAddress
   } = useAccountWithRouter()
 
-  if (shouldPassCondition) {
+  if (shouldPassCondition && !getIsWindowLocationDefined()) {
     return children
   }
   if (
