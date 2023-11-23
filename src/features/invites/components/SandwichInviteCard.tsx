@@ -19,27 +19,27 @@ export const SandwichInviteCard: React.FC<SandwichInviteCardProps> = ({
 }) => (
   <Link
     href={InternalLink.sandwichDetails(sandwichAddress, '')}
-    className="flex w-full max-w-sm items-center gap-4 rounded-xl border-2 border-primary bg-secondary px-8 py-6 text-background"
+    className="flex w-full max-w-sm flex-col gap-4 rounded-xl border-2 border-primary bg-secondary p-6 text-background"
   >
-    <div className="flex flex-1 flex-col gap-4">
-      <div className="flex flex-col gap-6">
-        <div className="flex flex-col gap-1">
-          <h3 className="font-main font-bold">{name}</h3>
-          <ProfileInfoWrapper address={owner}>
-            {profile =>
-              profile ? (
-                <div className="flex items-center gap-2">
-                  <Avatar
-                    src={profile.profileImageUrl}
-                    className="h-10 w-10"
-                  />
-                  <p className="text-white">{profile.name}</p>
-                </div>
-              ) : null
-            }
-          </ProfileInfoWrapper>
-        </div>
+    <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-1">
+        <h3 className="font-main font-bold">{name}</h3>
+        <ProfileInfoWrapper address={owner}>
+          {profile =>
+            profile ? (
+              <div className="flex items-center gap-2">
+                <Avatar
+                  src={profile.profileImageUrl}
+                  className="h-10 w-10"
+                />
+                <p className="text-white">{profile.name}</p>
+              </div>
+            ) : null
+          }
+        </ProfileInfoWrapper>
+      </div>
 
+      <div className="flex items-center justify-between gap-4">
         <div className="flex">
           {participantAddresses.map((address, index) => (
             <ProfileInfoWrapper
@@ -62,14 +62,14 @@ export const SandwichInviteCard: React.FC<SandwichInviteCardProps> = ({
             </IconWrapper>
           )}
         </div>
+
+        <Button
+          asChild
+          className="bg-background hover:bg-background-400"
+        >
+          <span>Cook it!</span>
+        </Button>
       </div>
     </div>
-
-    <Button
-      asChild
-      className="bg-background hover:bg-background-400"
-    >
-      <span>Cook it!</span>
-    </Button>
   </Link>
 )
