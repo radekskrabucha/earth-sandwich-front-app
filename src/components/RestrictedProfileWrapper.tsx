@@ -19,27 +19,37 @@ type ConditionalProfileWrapperProps =
 
 type RestrictedProfileWrapperProps = {
   pushTo: string
+  shouldPassCondition?: boolean
 } & ConditionalProfileWrapperProps
 
 export const RestrictedProfileWrapper: React.FC<
   React.PropsWithChildren<RestrictedProfileWrapperProps>
-> = ({ address, children, pushTo, shouldBeConnected, shouldMatchAddress }) => {
+> = ({
+  address,
+  children,
+  pushTo,
+  shouldBeConnected,
+  shouldMatchAddress,
+  shouldPassCondition
+}) => {
   const {
     getIsUserAccount,
     push,
     address: walletAddress
   } = useAccountWithRouter()
 
+  if (shouldPassCondition) {
+    return children
+  }
   if (
-    getIsWindowLocationDefined() &&
     shouldMatchAddress &&
-    !getIsUserAccount(address)
+    !(getIsWindowLocationDefined() && getIsUserAccount(address))
   ) {
     push(pushTo)
 
     return null
   }
-  if (getIsWindowLocationDefined() && shouldBeConnected && !walletAddress) {
+  if (shouldBeConnected && !(getIsWindowLocationDefined() && walletAddress)) {
     push(pushTo)
 
     return null
