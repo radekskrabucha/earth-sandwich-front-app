@@ -4,10 +4,10 @@ import { useQuery } from '@tanstack/react-query'
 import { Avatar } from '@/components/Avatar'
 import { Link } from '@/components/Link'
 import { InternalLink } from '@/config/app'
-import { getLSP3ProfileData } from '@/features/profile/utils'
 import { QueryKey } from '@/lib/reactQuery'
 import type { HexString } from '@/types/common'
 import { createIpfsLink } from '@/utils/images'
+import { getLSP3ProfileData } from '@/utils/profile'
 
 type AccountProps = {
   address: HexString

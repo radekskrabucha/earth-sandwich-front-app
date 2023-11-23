@@ -14,7 +14,7 @@ type InitiateSandwichArgs = {
 
 export const useInitiateSandwich = () => {
   const { address } = useAccount()
-  const { isLoading, error, write } = useContractWrite({
+  const { isLoading, error, write, isSuccess, data } = useContractWrite({
     abi: EarthSandwichABI,
     address: client.NEXT_PUBLIC_EARTH_SANDWICH_CONTRACT_ADDRESS as HexString,
     functionName: 'initiateSandwich',
@@ -31,6 +31,8 @@ export const useInitiateSandwich = () => {
         ]
       }),
     isLoading,
-    errorMessage: error ? getErrorMessage({ error }) : undefined
+    errorMessage: error ? getErrorMessage({ error }) : undefined,
+    isSuccess,
+    data
   }
 }

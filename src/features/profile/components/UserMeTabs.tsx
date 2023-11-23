@@ -3,6 +3,7 @@
 import { InternalLink } from '@/config/app'
 import { useAccountWithRouter } from '@/hooks/useAccountWithRouter'
 import type { HexString } from '@/types/common'
+import { getIsWindowLocationDefined } from '@/utils/common'
 import { ProfileTab } from './ProfileTab'
 
 type UserMeTabsProps = {
@@ -14,7 +15,7 @@ export const UserMeTabs: React.FC<UserMeTabsProps> = ({
 }) => {
   const { getIsUserAccount, push } = useAccountWithRouter()
 
-  if (!getIsUserAccount(paramAddress)) {
+  if (getIsWindowLocationDefined() && !getIsUserAccount(paramAddress)) {
     push(InternalLink.profile(paramAddress, ''))
 
     return null
