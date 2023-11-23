@@ -4,6 +4,7 @@ import axios, {
   type AxiosInstance
 } from 'axios'
 import { z } from 'zod'
+import { client } from '@/utils/env'
 
 export const AXIOS_TIMEOUT = 10000
 const AXIOS_CONFIG_DEFAULTS = {
@@ -14,6 +15,10 @@ const AXIOS_CONFIG_DEFAULTS = {
 }
 
 export const AXIOS_BASE_CLIENT = axios.create(AXIOS_CONFIG_DEFAULTS)
+export const AXIOS_PINATA_CLIENT = axios.create({
+  ...AXIOS_CONFIG_DEFAULTS,
+  baseURL: client.NEXT_PUBLIC_PINATA_API_URL
+})
 
 type SchemaParams<TReq extends z.ZodTypeAny, TRes extends z.ZodTypeAny> = {
   reqSchema: TReq
@@ -33,7 +38,7 @@ type MockParams<T> = {
   timeout?: number
   errorMessage?: string
 }
-type ApiAxiosClient = 'basic'
+type ApiAxiosClient = 'basic' | 'pinata'
 
 export const request = async <
   TReq extends z.ZodTypeAny,
@@ -101,5 +106,15 @@ const axiosFetch = <TReq, TRes>(
 }
 
 const API_CLIENTS: Record<ApiAxiosClient, AxiosInstance> = {
-  basic: AXIOS_BASE_CLIENT
+  basic: AXIOS_BASE_CLIENT,
+  pinata: AXIOS_PINATA_CLIENT
 }
+
+AXIOS_PINATA_CLIENT.interceptors.request.use(req => {
+  req = req || {}
+  req.headers = req.headers || {}
+
+  req.headers.Authorization = `Bearer ${client.NEXT_PUBLIC_PINATA_API_KEY}`
+
+  return req
+})

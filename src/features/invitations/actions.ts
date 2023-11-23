@@ -18,9 +18,9 @@ export const uploadIPFSImage = (req: UploadIPFSImageReqSchema) =>
     },
     {
       method: 'post',
-      url: '/upload',
+      url: '/pinning/pinFileToIPFS',
       req,
-      axiosClient: 'basic'
+      axiosClient: 'pinata'
     },
     {
       timeout: 2000,
@@ -37,9 +37,9 @@ export const uploadIPFSSandwichMetadata = (
     },
     {
       method: 'post',
-      url: '/upload',
+      url: '/pinning/pinFileToIPFS',
       req,
-      axiosClient: 'basic'
+      axiosClient: 'pinata'
     },
     {
       timeout: 2000,
