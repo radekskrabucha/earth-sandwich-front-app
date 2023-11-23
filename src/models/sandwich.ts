@@ -7,3 +7,8 @@ export type SandwichRaw = {
   participantAddresses: ReadonlyArray<HexString>
   participantMetadata: ReadonlyArray<string>
 }
+
+export type SandwichParticipant = {
+  hasAccepted: boolean
+  metadata: string
+}

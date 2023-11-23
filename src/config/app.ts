@@ -7,6 +7,7 @@ export type ProfileSegment =
   | '/followers'
   | '/following'
   | '/sandwich-invites'
+export type SandwichDetailsSegment = '' | '/mint' | '/accept-invite'
 
 export const InternalLink = {
   home: '/',
@@ -14,7 +15,8 @@ export const InternalLink = {
   createSandwich: '/create-sandwich',
   profile: (address: HexString, segment: ProfileSegment) =>
     `/profile/${address}${segment}`,
-  sandwichDetails: (id: HexString) => `/sandwich/${id}`
+  sandwichDetails: (id: HexString, segment: SandwichDetailsSegment) =>
+    `/sandwich/${id}${segment}`
 } as const
 
 export const ExternalLink = {} as const

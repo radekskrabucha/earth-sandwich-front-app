@@ -51,7 +51,7 @@ export const buttonVariants = cva(
         primary:
           'bg-secondary text-white hover:bg-secondary-600 disabled:bg-secondary-300',
         outline:
-          'border border-primary hover:border-primary-400 hover:text-primary-400 text-primary disabled:border-primary-700 disabled:text-primary-700',
+          'border border-primary bg-transparent hover:bg-white/5 hover:border-primary-400 hover:text-primary-400 text-primary disabled:border-primary-700 disabled:hover:bg-transparent disabled:text-primary-700',
         ghost: 'hover:bg-primary-100/10 disabled:opacity-50',
         link: 'underline-offset-2 underline p-0 disabled:opacity-50'
       }
