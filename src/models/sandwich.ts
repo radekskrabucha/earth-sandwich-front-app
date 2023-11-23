@@ -12,3 +12,14 @@ export type SandwichParticipant = {
   hasAccepted: boolean
   metadata: string
 }
+
+export type Location = {
+  lat: number
+  lng: number
+}
+
+export type SandwichParticipantMetadata = {
+  location: Location
+  timestamp: number
+  imageIPFSHash?: string
+}
