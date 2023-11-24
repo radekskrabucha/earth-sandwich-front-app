@@ -12,6 +12,7 @@ import { useUploadIPFSImageExtended } from './useUploadIPFSImageExtended'
 
 type MintSandwichFormArgs = {
   sandwichId: HexString
+  title: string
 }
 
 type OnSubmitArgs = {
@@ -20,7 +21,10 @@ type OnSubmitArgs = {
   participantsMetadataHashes: Array<string>
 }
 
-export const useMintSandwichForm = ({ sandwichId }: MintSandwichFormArgs) => {
+export const useMintSandwichForm = ({
+  sandwichId,
+  title
+}: MintSandwichFormArgs) => {
   const formRef = useRef<FormInstance<MintSandwichFormSchema>>(null)
   const { address } = useAccount()
   const { error, loading, latitude, longitude, timestamp } = useGeolocation({
@@ -63,6 +67,7 @@ export const useMintSandwichForm = ({ sandwichId }: MintSandwichFormArgs) => {
       if (latitude && longitude && timestamp) {
         uploadIPFSMetadata(
           getIpfsJSONFile<SandwichMetadata>({
+            title,
             description,
             ownerMetadata: {
               location: {
@@ -110,6 +115,7 @@ export const useMintSandwichForm = ({ sandwichId }: MintSandwichFormArgs) => {
       if (latitude && longitude && timestamp) {
         return uploadIPFSMetadata(
           getIpfsJSONFile<SandwichMetadata>({
+            title,
             description,
             ownerMetadata: {
               location: {

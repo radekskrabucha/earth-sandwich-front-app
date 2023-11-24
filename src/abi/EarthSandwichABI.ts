@@ -2,18 +2,8 @@ export const EarthSandwichABI = [
   {
     inputs: [
       {
-        internalType: 'string',
-        name: 'name',
-        type: 'string'
-      },
-      {
-        internalType: 'string',
-        name: 'symbol',
-        type: 'string'
-      },
-      {
         internalType: 'address',
-        name: 'newOwner',
+        name: '_owner',
         type: 'address'
       }
     ],
@@ -709,11 +699,6 @@ export const EarthSandwichABI = [
         internalType: 'string',
         name: 'name',
         type: 'string'
-      },
-      {
-        internalType: 'bytes32',
-        name: 'sandwichId',
-        type: 'bytes32'
       },
       {
         internalType: 'address[]',

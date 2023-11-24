@@ -26,6 +26,7 @@ export type SandwichParticipantMetadata = {
 }
 
 export type SandwichMetadata = {
+  title: string
   description: string
   ownerMetadata: SandwichParticipantMetadata
   participantsMetadataHashes: ReadonlyArray<string>

@@ -1,9 +1,7 @@
-import { hashMessage } from 'viem'
-import { useAccount, useContractWrite } from 'wagmi'
+import { useContractWrite } from 'wagmi'
 import { EarthSandwichABI } from '@/abi/EarthSandwichABI'
 import { luksoTestnet } from '@/lib/walletChains'
 import type { HexString } from '@/types/common'
-import { getDateNowISOString } from '@/utils/date'
 import { client } from '@/utils/env'
 import { getErrorMessage } from '@/utils/error'
 
@@ -13,7 +11,6 @@ type InitiateSandwichArgs = {
 }
 
 export const useInitiateSandwich = () => {
-  const { address } = useAccount()
   const { isLoading, error, write, isSuccess, data } = useContractWrite({
     abi: EarthSandwichABI,
     address: client.NEXT_PUBLIC_EARTH_SANDWICH_CONTRACT_ADDRESS as HexString,
@@ -24,11 +21,7 @@ export const useInitiateSandwich = () => {
   return {
     initiateSandwich: ({ name, participants }: InitiateSandwichArgs) =>
       write({
-        args: [
-          name,
-          hashMessage(`${name}-${address}-${getDateNowISOString()}`),
-          participants
-        ]
+        args: [name, participants]
       }),
     isLoading,
     errorMessage: error ? getErrorMessage({ error }) : undefined,

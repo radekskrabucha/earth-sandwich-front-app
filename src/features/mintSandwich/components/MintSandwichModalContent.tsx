@@ -44,6 +44,7 @@ export const MintSandwichModalContent: React.FC<
     <MintSandwichForm
       sandwichId={sandwichId}
       participantsMetadataHashes={participantMetadata as Array<HexString>}
+      title={name}
     />
   </>
 )

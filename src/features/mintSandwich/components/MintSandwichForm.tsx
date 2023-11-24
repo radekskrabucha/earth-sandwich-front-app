@@ -16,14 +16,16 @@ import {
 type MintSandwichFormProps = {
   sandwichId: HexString
   participantsMetadataHashes: Array<HexString>
+  title: string
 }
 
 export const MintSandwichForm: React.FC<MintSandwichFormProps> = ({
   sandwichId,
-  participantsMetadataHashes
+  participantsMetadataHashes,
+  title
 }) => {
   const { isLoading, disabled, errorMessage, onSubmit, data, formRef } =
-    useMintSandwichForm({ sandwichId })
+    useMintSandwichForm({ sandwichId, title })
 
   return (
     <Form<MintSandwichFormSchema>
