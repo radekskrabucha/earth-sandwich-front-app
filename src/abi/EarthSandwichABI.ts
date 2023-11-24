@@ -529,16 +529,21 @@ export const EarthSandwichABI = [
     inputs: [
       {
         internalType: 'address',
-        name: 'participant',
+        name: 'user',
         type: 'address'
       }
     ],
-    name: 'getMintedSandwichesByParticipant',
+    name: 'getMintedSandwichesParticipatedWithMetadata',
     outputs: [
       {
         internalType: 'bytes32[]',
         name: '',
         type: 'bytes32[]'
+      },
+      {
+        internalType: 'string[]',
+        name: '',
+        type: 'string[]'
       }
     ],
     stateMutability: 'view',
@@ -621,6 +626,25 @@ export const EarthSandwichABI = [
         internalType: 'string[]',
         name: 'participantMetadata',
         type: 'string[]'
+      }
+    ],
+    stateMutability: 'view',
+    type: 'function'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'sandwichId',
+        type: 'bytes32'
+      }
+    ],
+    name: 'getSandwichMetadata',
+    outputs: [
+      {
+        internalType: 'string',
+        name: '',
+        type: 'string'
       }
     ],
     stateMutability: 'view',

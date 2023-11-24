@@ -3,18 +3,23 @@ import { IconWrapper } from '@/components/IconWrapper'
 import { Image } from '@/components/Image'
 import { ProfileInfoWrapper } from '@/components/ProfileInfoWrapper'
 import type { SandwichParticipantMetadata } from '@/models/sandwich'
+import type { WithClassName } from '@/types/common'
 import { formatToDateWithTime } from '@/utils/date'
 import { createIpfsLink } from '@/utils/ipfs'
+import { cn } from '@/utils/styles'
 import { shortenAddress } from '@/utils/textUtils'
 
-export const MintUserTile: React.FC<SandwichParticipantMetadata> = ({
-  address,
-  timestamp,
-  imageIPFSHash
-}) => (
+export const MintUserTile: React.FC<
+  WithClassName<SandwichParticipantMetadata>
+> = ({ address, timestamp, imageIPFSHash, className }) => (
   <ProfileInfoWrapper address={address}>
     {profile => (
-      <IconWrapper className="relative h-36 w-36 overflow-hidden rounded-3xl border-2 border-primary bg-white/10">
+      <IconWrapper
+        className={cn(
+          'relative h-36 w-36 overflow-hidden rounded-3xl border-2 border-primary bg-white/10 text-left text-secondary',
+          className
+        )}
+      >
         {imageIPFSHash && (
           <Image
             src={createIpfsLink(imageIPFSHash)}
@@ -32,7 +37,7 @@ export const MintUserTile: React.FC<SandwichParticipantMetadata> = ({
             className="h-5 w-5"
           />
           <div className="text-xs leading-tight">
-            <h4 className="line-clamp-1 text-secondary">
+            <h4 className="line-clamp-1">
               {profile?.name || shortenAddress(address)}
             </h4>
             <h4 className="line-clamp-1 text-[10px] text-white/50">
