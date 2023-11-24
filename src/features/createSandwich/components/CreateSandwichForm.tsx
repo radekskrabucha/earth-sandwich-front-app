@@ -4,6 +4,7 @@ import { Field, Form } from 'houseform'
 import { AnimatedStatusMessage } from '@/components/AnimatedStatusMessage'
 import { Button } from '@/components/Button'
 import { LoaderCircle } from '@/components/LoaderCircle'
+import { Separator } from '@/components/Separator'
 import { Input } from '@/components/input'
 import type { HexString } from '@/types/common'
 import { useInitiateSandwich } from '../hooks/useInitiateSandwich'
@@ -17,7 +18,7 @@ export const CreateSandwichForm = () => {
     useInitiateSandwich()
 
   return (
-    <section className="layout-section max-w-lg rounded-3xl border border-secondary/50 bg-black/10">
+    <section className="layout-section">
       <Form<InitiateSandwichFormSchema>
         onSubmit={({ address, name }) => {
           initiateSandwich({
@@ -32,7 +33,7 @@ export const CreateSandwichForm = () => {
               e.preventDefault()
               submit()
             }}
-            className="flex flex-col gap-8"
+            className="flex w-full max-w-lg flex-col gap-8 self-center  rounded-3xl border border-primary/10 bg-background p-8 shadow-2xl"
           >
             <Field<InitiateSandwichFormSchema['name']>
               name="name"
@@ -72,6 +73,7 @@ export const CreateSandwichForm = () => {
                 />
               )}
             </Field>
+            <Separator className="-mb-2" />
             <Button
               type="submit"
               disabled={isLoading || isValidating}

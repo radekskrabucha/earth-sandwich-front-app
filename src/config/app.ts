@@ -4,6 +4,7 @@ import type { HexString } from '@/types/common'
 export type ProfileSegment =
   | ''
   | '/sandwiches'
+  | '/sandwiches/pending'
   | '/followers'
   | '/following'
   | '/sandwich-invitations'

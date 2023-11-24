@@ -15,7 +15,7 @@ export const Separator: React.FC<WithClassName<SeparatorProps>> = ({
 }) => (
   <div
     className={cn(
-      'shrink-0 bg-zinc-200',
+      'shrink-0 bg-white/30',
       orientation === 'horizontal' ? 'h-px w-full' : 'h-full w-px',
       className
     )}

@@ -1,8 +1,5 @@
 import { readContract } from 'viem/actions'
 import { EarthSandwichABI } from '@/abi/EarthSandwichABI'
-import { Button } from '@/components/Button'
-import { Link } from '@/components/Link'
-import { InternalLink } from '@/config/app'
 import type { ProfilePageProps } from '@/features/profile/types'
 import { viemClient } from '@/lib/viem'
 import type { HexString } from '@/types/common'
@@ -22,14 +19,6 @@ export const ProfileSandwichesPage: React.FC<ProfilePageProps> = async ({
 
   return (
     <section className="layout-section">
-      <Button asChild>
-        <Link
-          className="self-end"
-          href={InternalLink.createSandwich}
-        >
-          <span className="text-2xl">+</span> create sandwich
-        </Link>
-      </Button>
       <div className="grid grid-cols-2 gap-8">
         {sandwiches.map(sandwich => (
           <SandwichInfoWrapper
