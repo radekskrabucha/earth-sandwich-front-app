@@ -18,3 +18,5 @@ export const getIpfsImageFile = (image: File): IpfsImageFile => ({
 
 export const createIpfsLink = (url: string): string =>
   url.replace('ipfs://', client.NEXT_PUBLIC_IPFS_GATEWAY)
+
+export const withIpfsPrefix = (hash: string): string => `ipfs://${hash}`

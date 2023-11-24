@@ -662,7 +662,7 @@ export const EarthSandwichABI = [
     outputs: [
       {
         internalType: 'bool',
-        name: '',
+        name: 'hasAccepted',
         type: 'bool'
       },
       {
