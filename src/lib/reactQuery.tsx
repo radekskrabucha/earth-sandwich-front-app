@@ -22,5 +22,6 @@ export const QueryKey = {
 
 export const MutationKey = {
   uploadIPFSImage: 'uploadIPFSImage',
+  uploadIPFSImageExtended: 'uploadIPFSImageExtended',
   uploadIPFSMetadata: 'uploadIPFSMetadata'
 } as const

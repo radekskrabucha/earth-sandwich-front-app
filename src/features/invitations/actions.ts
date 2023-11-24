@@ -4,11 +4,11 @@ import {
   uploadIPFSSandwichMetadataReqSchema,
   type UploadIPFSImageReqSchema,
   type UploadIPFSSandwichMetadataReqSchema
-} from './validationSchemas/request'
+} from './schemas/request'
 import {
   uploadIPFSImageResSchema,
   uploadIPFSSandwichMetadataResSchema
-} from './validationSchemas/response'
+} from './schemas/response'
 
 export const uploadIPFSImage = (req: UploadIPFSImageReqSchema) =>
   request(

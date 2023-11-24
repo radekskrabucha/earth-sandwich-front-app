@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
 import { MutationKey } from '@/lib/reactQuery'
 import { getErrorMessage } from '@/utils/error'
+import { withIpfsPrefix } from '@/utils/ipfs'
 import { uploadIPFSSandwichMetadata } from '../actions'
 
 type UploadIPFSMetadataArgs = {
@@ -14,7 +15,7 @@ export const useUploadIPFSMetadata = ({
     mutationKey: [MutationKey.uploadIPFSMetadata],
     mutationFn: uploadIPFSSandwichMetadata,
     onSuccess(data) {
-      onSuccess?.(`ipfs://${data.IpfsHash}`)
+      onSuccess?.(withIpfsPrefix(data.IpfsHash))
     }
   })
 

@@ -5,7 +5,7 @@ import { viemClient } from '@/lib/viem'
 import type { HexString } from '@/types/common'
 import { client } from '@/utils/env'
 import { NoInvitationsInfo } from './NoInvitationsInfo'
-import { SandwichInviteCard } from './SandwichInvitationsCard'
+import { SandwichInvitationCard } from './SandwichInvitationsCard'
 
 type InvitationsSectionProps = {
   address: HexString
@@ -41,7 +41,7 @@ export const InvitationsSection: React.FC<InvitationsSectionProps> = async ({
                 address={sandwichAddress}
               >
                 {sandwich => (
-                  <SandwichInviteCard
+                  <SandwichInvitationCard
                     {...sandwich}
                     sandwichAddress={sandwichAddress}
                   />

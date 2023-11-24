@@ -7,11 +7,11 @@ import { InternalLink } from '@/config/app'
 import type { SandwichRaw } from '@/models/sandwich'
 import type { HexString } from '@/types/common'
 
-type SandwichInviteCardProps = {
+type SandwichInvitationCardProps = {
   sandwichAddress: HexString
 } & SandwichRaw
 
-export const SandwichInviteCard: React.FC<SandwichInviteCardProps> = ({
+export const SandwichInvitationCard: React.FC<SandwichInvitationCardProps> = ({
   name,
   owner,
   participantAddresses,
@@ -19,11 +19,11 @@ export const SandwichInviteCard: React.FC<SandwichInviteCardProps> = ({
 }) => (
   <Link
     href={InternalLink.sandwichDetails(sandwichAddress, '')}
-    className="flex w-full max-w-sm flex-col gap-4 rounded-xl border-2 border-primary bg-secondary p-6 text-background"
+    className="flex w-full max-w-sm flex-col gap-4 rounded-xl border-2 border-primary/10 bg-white/10 p-6 text-primary shadow-lg"
   >
     <div className="flex flex-col gap-6">
-      <div className="flex flex-col gap-1">
-        <h3 className="font-main font-bold">{name}</h3>
+      <div className="flex flex-col gap-1.5">
+        <h3 className="line-clamp-1 font-main font-bold">{name}</h3>
         <ProfileInfoWrapper address={owner}>
           {profile =>
             profile ? (
@@ -32,7 +32,7 @@ export const SandwichInviteCard: React.FC<SandwichInviteCardProps> = ({
                   src={profile.profileImageUrl}
                   className="h-10 w-10"
                 />
-                <p className="text-white">{profile.name}</p>
+                <p className="line-clamp-1 text-white/75">{profile.name}</p>
               </div>
             ) : null
           }
@@ -65,7 +65,7 @@ export const SandwichInviteCard: React.FC<SandwichInviteCardProps> = ({
 
         <Button
           asChild
-          className="bg-background hover:bg-background-400"
+          variant="outline"
         >
           <span>Cook it!</span>
         </Button>

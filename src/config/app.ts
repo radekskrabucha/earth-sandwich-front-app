@@ -2,12 +2,10 @@ import Logo from '@/public/images/shared/logo.svg'
 import type { HexString } from '@/types/common'
 
 export type ProfileSegment =
-  | ''
   | '/sandwiches'
+  | '/sandwiches/participated'
   | '/sandwiches/pending'
-  | '/followers'
-  | '/following'
-  | '/sandwich-invitations'
+  | '/sandwiches/invitations'
 export type SandwichDetailsSegment = '' | '/mint' | '/accept-invitation'
 
 export const InternalLink = {
@@ -20,7 +18,11 @@ export const InternalLink = {
     `/sandwich/${id}${segment}`
 } as const
 
-export const ExternalLink = {} as const
+export const ExternalLink = {
+  downloadUP:
+    'https://chromewebstore.google.com/detail/universal-profiles/abpickdkkbnbcoepogfhkhennhfhehfn?pli=1',
+  lukso: 'https://lukso.network/'
+} as const
 
 export const AppName = 'EarthSandwich'
 

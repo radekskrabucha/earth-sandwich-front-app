@@ -2,18 +2,8 @@ export const EarthSandwichABI = [
   {
     inputs: [
       {
-        internalType: 'string',
-        name: 'name',
-        type: 'string'
-      },
-      {
-        internalType: 'string',
-        name: 'symbol',
-        type: 'string'
-      },
-      {
         internalType: 'address',
-        name: 'newOwner',
+        name: '_owner',
         type: 'address'
       }
     ],
@@ -466,6 +456,11 @@ export const EarthSandwichABI = [
         internalType: 'string',
         name: 'finalMetadataIPFSHash',
         type: 'string'
+      },
+      {
+        internalType: 'address',
+        name: 'to',
+        type: 'address'
       }
     ],
     name: 'finalizeAndMint',
@@ -534,16 +529,45 @@ export const EarthSandwichABI = [
     inputs: [
       {
         internalType: 'address',
-        name: 'participant',
+        name: 'user',
         type: 'address'
       }
     ],
-    name: 'getMintedSandwichesByParticipant',
+    name: 'getMintedSandwichesParticipatedWithMetadata',
     outputs: [
       {
         internalType: 'bytes32[]',
         name: '',
         type: 'bytes32[]'
+      },
+      {
+        internalType: 'string[]',
+        name: '',
+        type: 'string[]'
+      }
+    ],
+    stateMutability: 'view',
+    type: 'function'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'user',
+        type: 'address'
+      }
+    ],
+    name: 'getMintedSandwichesWithMetadata',
+    outputs: [
+      {
+        internalType: 'bytes32[]',
+        name: '',
+        type: 'bytes32[]'
+      },
+      {
+        internalType: 'string[]',
+        name: '',
+        type: 'string[]'
       }
     ],
     stateMutability: 'view',
@@ -563,44 +587,6 @@ export const EarthSandwichABI = [
         internalType: 'address[]',
         name: '',
         type: 'address[]'
-      }
-    ],
-    stateMutability: 'view',
-    type: 'function'
-  },
-  {
-    inputs: [
-      {
-        internalType: 'address',
-        name: 'user',
-        type: 'address'
-      }
-    ],
-    name: 'getOwnedSandwiches',
-    outputs: [
-      {
-        internalType: 'bytes32[]',
-        name: '',
-        type: 'bytes32[]'
-      }
-    ],
-    stateMutability: 'view',
-    type: 'function'
-  },
-  {
-    inputs: [
-      {
-        internalType: 'address',
-        name: 'user',
-        type: 'address'
-      }
-    ],
-    name: 'getParticipatedSandwiches',
-    outputs: [
-      {
-        internalType: 'bytes32[]',
-        name: '',
-        type: 'bytes32[]'
       }
     ],
     stateMutability: 'view',
@@ -651,6 +637,25 @@ export const EarthSandwichABI = [
         internalType: 'bytes32',
         name: 'sandwichId',
         type: 'bytes32'
+      }
+    ],
+    name: 'getSandwichMetadata',
+    outputs: [
+      {
+        internalType: 'string',
+        name: '',
+        type: 'string'
+      }
+    ],
+    stateMutability: 'view',
+    type: 'function'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'sandwichId',
+        type: 'bytes32'
       },
       {
         internalType: 'address',
@@ -662,7 +667,7 @@ export const EarthSandwichABI = [
     outputs: [
       {
         internalType: 'bool',
-        name: '',
+        name: 'hasAccepted',
         type: 'bool'
       },
       {
@@ -718,11 +723,6 @@ export const EarthSandwichABI = [
         internalType: 'string',
         name: 'name',
         type: 'string'
-      },
-      {
-        internalType: 'bytes32',
-        name: 'sandwichId',
-        type: 'bytes32'
       },
       {
         internalType: 'address[]',

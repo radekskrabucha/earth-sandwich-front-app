@@ -21,5 +21,13 @@ export type Location = {
 export type SandwichParticipantMetadata = {
   location: Location
   timestamp: number
+  address: HexString
   imageIPFSHash?: string
+}
+
+export type SandwichMetadata = {
+  title: string
+  description: string
+  ownerMetadata: SandwichParticipantMetadata
+  participantsMetadataHashes: ReadonlyArray<string>
 }

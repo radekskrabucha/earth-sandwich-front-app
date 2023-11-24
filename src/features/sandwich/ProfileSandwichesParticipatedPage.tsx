@@ -7,12 +7,12 @@ import type { HexString } from '@/types/common'
 import { client } from '@/utils/env'
 import { SandwichCard } from './components/SandwichCard'
 
-export const ProfileSandwichesPage: React.FC<ProfilePageProps> = async ({
-  params: { address }
-}) => {
+export const ProfileSandwichesParticipatedPage: React.FC<
+  ProfilePageProps
+> = async ({ params: { address } }) => {
   const [sandwiches, sandwichesMetadata] = await readContract(viemClient, {
     abi: EarthSandwichABI,
-    functionName: 'getMintedSandwichesWithMetadata',
+    functionName: 'getMintedSandwichesParticipatedWithMetadata',
     args: [address],
     address: client.NEXT_PUBLIC_EARTH_SANDWICH_CONTRACT_ADDRESS as HexString
   })
