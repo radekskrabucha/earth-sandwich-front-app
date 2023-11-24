@@ -18,7 +18,11 @@ export const InternalLink = {
     `/sandwich/${id}${segment}`
 } as const
 
-export const ExternalLink = {} as const
+export const ExternalLink = {
+  downloadUP:
+    'https://chromewebstore.google.com/detail/universal-profiles/abpickdkkbnbcoepogfhkhennhfhehfn?pli=1',
+  lukso: 'https://lukso.network/'
+} as const
 
 export const AppName = 'EarthSandwich'
 
