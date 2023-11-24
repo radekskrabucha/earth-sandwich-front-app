@@ -1,32 +1,37 @@
 import { readContract } from 'viem/actions'
 import { EarthSandwichABI } from '@/abi/EarthSandwichABI'
+import { SandwichMetadataInfoWrapper } from '@/components/SandwichMetadataInfoWrapper'
 import type { ProfilePageProps } from '@/features/profile/types'
 import { viemClient } from '@/lib/viem'
 import type { HexString } from '@/types/common'
 import { client } from '@/utils/env'
 import { SandwichCard } from './components/SandwichCard'
-import { SandwichInfoWrapper } from './components/SandwichInfoWrapper'
 
 export const ProfileSandwichesPage: React.FC<ProfilePageProps> = async ({
   params: { address }
 }) => {
-  const sandwiches = await readContract(viemClient, {
+  const [sandwiches, sandwichesMetadata] = await readContract(viemClient, {
     abi: EarthSandwichABI,
-    functionName: 'getMintedSandwichesByOwner',
+    functionName: 'getMintedSandwichesWithMetadata',
     args: [address],
     address: client.NEXT_PUBLIC_EARTH_SANDWICH_CONTRACT_ADDRESS as HexString
   })
 
   return (
     <section className="layout-section">
-      <div className="grid grid-cols-2 gap-8">
-        {sandwiches.map(sandwich => (
-          <SandwichInfoWrapper
-            key={sandwich}
-            address={sandwich}
+      <div className="grid grid-cols-2 gap-8 max-md:grid-cols-1">
+        {sandwiches.map((sandwichId, index) => (
+          <SandwichMetadataInfoWrapper
+            ipfsHash={sandwichesMetadata[index] as string}
+            key={sandwichId}
           >
-            {sandwich => <SandwichCard {...sandwich} />}
-          </SandwichInfoWrapper>
+            {sandwichMetadata => (
+              <SandwichCard
+                sandwich={sandwichMetadata}
+                sandwichId={sandwichId}
+              />
+            )}
+          </SandwichMetadataInfoWrapper>
         ))}
       </div>
     </section>

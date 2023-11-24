@@ -1,8 +1,24 @@
 import { request } from '@/lib/axios'
 import { createIpfsLink } from '@/utils/ipfs'
 import { getSandwichMetadataReqSchema } from './validationSchemas/request'
-import { getSandwichMetadataResSchema } from './validationSchemas/response'
+import {
+  getSandwichMetadataResSchema,
+  getSandwichUserMetadataResSchema
+} from './validationSchemas/response'
 
+export const getSandwichUserMetadata = (ipfsHash: string) =>
+  request(
+    {
+      reqSchema: getSandwichMetadataReqSchema,
+      resSchema: getSandwichUserMetadataResSchema
+    },
+    {
+      method: 'get',
+      url: createIpfsLink(ipfsHash),
+      req: undefined,
+      axiosClient: 'basic'
+    }
+  )
 export const getSandwichMetadata = (ipfsHash: string) =>
   request(
     {

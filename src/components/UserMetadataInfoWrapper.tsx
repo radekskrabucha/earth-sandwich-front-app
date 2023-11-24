@@ -1,4 +1,4 @@
-import { getSandwichMetadata } from '@/features/sandwich/actions'
+import { getSandwichUserMetadata } from '@/features/sandwich/actions'
 import type { SandwichParticipantMetadata } from '@/models/sandwich'
 
 type UserMetadataInfoWrapperProps = {
@@ -9,7 +9,7 @@ type UserMetadataInfoWrapperProps = {
 export const UserMetadataInfoWrapper: React.FC<
   UserMetadataInfoWrapperProps
 > = async ({ ipfsHash, children }) => {
-  const data = (await getSandwichMetadata(
+  const data = (await getSandwichUserMetadata(
     ipfsHash
   )) as SandwichParticipantMetadata
 
