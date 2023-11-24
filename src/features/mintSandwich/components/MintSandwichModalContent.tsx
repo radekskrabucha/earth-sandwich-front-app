@@ -41,6 +41,9 @@ export const MintSandwichModalContent: React.FC<
     <span className="text-center text-white/50">
       Add your own photo and description to this sandwich
     </span>
-    <MintSandwichForm sandwichId={sandwichId} />
+    <MintSandwichForm
+      sandwichId={sandwichId}
+      participantsMetadataHashes={participantMetadata as Array<HexString>}
+    />
   </>
 )

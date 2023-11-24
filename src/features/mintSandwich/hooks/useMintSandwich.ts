@@ -31,7 +31,6 @@ export const useMintSandwich = ({ onSuccess }: UseMintSandwichArgs) => {
     isSuccess,
     data,
     mintSandwich: ({ sandwichId, metadataIPFSHash }: MintSandwichArgs) => {
-      return console.log('should mint', { sandwichId, metadataIPFSHash })
       write({
         args: [sandwichId, metadataIPFSHash]
       })

@@ -1,10 +1,14 @@
+import type { FormInstance } from 'houseform'
 import { useAccount } from 'wagmi'
-import { useUploadIPFSImage } from '@/features/invitations/hooks/useUploadIPFSImage'
+import { useRef } from 'react'
 import { useUploadIPFSMetadata } from '@/features/invitations/hooks/useUploadIPFSMetadata'
 import { useGeolocation } from '@/hooks/useGeolocation'
+import type { SandwichMetadata } from '@/models/sandwich'
 import type { HexString } from '@/types/common'
 import { getIpfsImageFile, getIpfsJSONFile } from '@/utils/ipfs'
+import type { MintSandwichFormSchema } from '../schemas/form'
 import { useMintSandwich } from './useMintSandwich'
+import { useUploadIPFSImageExtended } from './useUploadIPFSImageExtended'
 
 type MintSandwichFormArgs = {
   sandwichId: HexString
@@ -13,9 +17,11 @@ type MintSandwichFormArgs = {
 type OnSubmitArgs = {
   description: string
   image: File | string
+  participantsMetadataHashes: Array<string>
 }
 
 export const useMintSandwichForm = ({ sandwichId }: MintSandwichFormArgs) => {
+  const formRef = useRef<FormInstance<MintSandwichFormSchema>>(null)
   const { address } = useAccount()
   const { error, loading, latitude, longitude, timestamp } = useGeolocation({
     enableHighAccuracy: true,
@@ -29,7 +35,9 @@ export const useMintSandwichForm = ({ sandwichId }: MintSandwichFormArgs) => {
     isLoading: isMintLoading,
     mintSandwich
   } = useMintSandwich({
-    onSuccess: () => {}
+    onSuccess: () => {
+      formRef.current?.reset()
+    }
   })
 
   const {
@@ -38,7 +46,6 @@ export const useMintSandwichForm = ({ sandwichId }: MintSandwichFormArgs) => {
     upload: uploadIPFSMetadata
   } = useUploadIPFSMetadata({
     onSuccess: metadataIPFSHash => {
-      console.log('mint success !!', metadataIPFSHash)
       mintSandwich({
         metadataIPFSHash,
         sandwichId
@@ -50,18 +57,22 @@ export const useMintSandwichForm = ({ sandwichId }: MintSandwichFormArgs) => {
     isLoading: isUploadIPFSImageLoading,
     errorMessage: uploadIPFSImageErrorMessage,
     upload: uploadIPFSImage
-  } = useUploadIPFSImage({
-    onSuccess: ipfsHash => {
+  } = useUploadIPFSImageExtended({
+    onSuccess: (imageIPFSHash, description, participantsMetadataHashes) => {
       if (latitude && longitude && timestamp) {
         uploadIPFSMetadata(
-          getIpfsJSONFile({
-            location: {
-              lat: latitude,
-              long: longitude
+          getIpfsJSONFile<SandwichMetadata>({
+            description,
+            ownerMetadata: {
+              location: {
+                lat: latitude,
+                long: longitude
+              },
+              timestamp,
+              address: address as HexString,
+              imageIPFSHash
             },
-            timestamp,
-            imageIPFSHash: ipfsHash,
-            address: address as HexString
+            participantsMetadataHashes
           })
         )
       }
@@ -69,6 +80,7 @@ export const useMintSandwichForm = ({ sandwichId }: MintSandwichFormArgs) => {
   })
 
   return {
+    formRef,
     data,
     disabled: Boolean(error) || !latitude || !longitude || !timestamp,
     errorMessage:
@@ -82,19 +94,31 @@ export const useMintSandwichForm = ({ sandwichId }: MintSandwichFormArgs) => {
       isUploadIPFSImageLoading ||
       isUploadIPFSMetadataLoading ||
       isMintLoading,
-    onSubmit: ({ image }: OnSubmitArgs) => {
+    onSubmit: ({
+      image,
+      description,
+      participantsMetadataHashes
+    }: OnSubmitArgs) => {
       if (typeof image !== 'string' && image) {
-        return uploadIPFSImage(getIpfsImageFile(image))
+        return uploadIPFSImage({
+          ...getIpfsImageFile(image),
+          description,
+          participantsMetadataHashes
+        })
       }
       if (latitude && longitude && timestamp) {
         return uploadIPFSMetadata(
-          getIpfsJSONFile({
-            location: {
-              lat: latitude,
-              long: longitude
+          getIpfsJSONFile<SandwichMetadata>({
+            description,
+            ownerMetadata: {
+              location: {
+                lat: latitude,
+                long: longitude
+              },
+              timestamp,
+              address: address as HexString
             },
-            timestamp,
-            address: address as HexString
+            participantsMetadataHashes
           })
         )
       }

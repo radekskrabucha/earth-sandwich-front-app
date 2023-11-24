@@ -24,3 +24,9 @@ export type SandwichParticipantMetadata = {
   address: HexString
   imageIPFSHash?: string
 }
+
+export type SandwichMetadata = {
+  description: string
+  ownerMetadata: SandwichParticipantMetadata
+  participantsMetadataHashes: ReadonlyArray<string>
+}

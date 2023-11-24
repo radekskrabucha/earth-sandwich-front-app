@@ -15,19 +15,22 @@ import {
 
 type MintSandwichFormProps = {
   sandwichId: HexString
+  participantsMetadataHashes: Array<HexString>
 }
 
 export const MintSandwichForm: React.FC<MintSandwichFormProps> = ({
-  sandwichId
+  sandwichId,
+  participantsMetadataHashes
 }) => {
-  const { isLoading, disabled, errorMessage, onSubmit, data } =
+  const { isLoading, disabled, errorMessage, onSubmit, data, formRef } =
     useMintSandwichForm({ sandwichId })
 
   return (
     <Form<MintSandwichFormSchema>
       onSubmit={({ description, image }) => {
-        onSubmit({ description, image })
+        onSubmit({ description, image, participantsMetadataHashes })
       }}
+      ref={formRef}
     >
       {({ submit, isValidating }) => (
         <form

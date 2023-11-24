@@ -1,6 +1,7 @@
 import { useAccount } from 'wagmi'
 import { useState } from 'react'
 import { useGeolocation } from '@/hooks/useGeolocation'
+import type { SandwichParticipantMetadata } from '@/models/sandwich'
 import type { HexString } from '@/types/common'
 import { getIpfsImageFile, getIpfsJSONFile } from '@/utils/ipfs'
 import { useAcceptInvitation } from './useAcceptInvitation'
@@ -49,7 +50,7 @@ export const useAcceptInvitationForm = (sandwichId: HexString) => {
     onSuccess: ipfsHash => {
       if (latitude && longitude && timestamp) {
         uploadIPFSMetadata(
-          getIpfsJSONFile({
+          getIpfsJSONFile<SandwichParticipantMetadata>({
             location: {
               lat: latitude,
               long: longitude
@@ -73,7 +74,7 @@ export const useAcceptInvitationForm = (sandwichId: HexString) => {
       }
       if (latitude && longitude && timestamp) {
         return uploadIPFSMetadata(
-          getIpfsJSONFile({
+          getIpfsJSONFile<SandwichParticipantMetadata>({
             location: {
               lat: latitude,
               long: longitude
