@@ -4,7 +4,9 @@ import { Link } from '@/components/Link'
 import { RestrictedProfileWrapper } from '@/components/RestrictedProfileWrapper'
 import { Modal, ModalContentWrapper } from '@/components/modal'
 import { InternalLink } from '@/config/app'
+import { SandwichInfoWrapper } from '@/features/sandwich/components/SandwichInfoWrapper'
 import type { SandwichDetailsPageProps } from '@/features/sandwichDetails/types'
+import { MintSandwichModalContent } from './components/MintSandwichModalContent'
 
 export const MintSandwichPage: React.FC<SandwichDetailsPageProps> = ({
   params: { id }
@@ -41,9 +43,9 @@ export const MintSandwichPage: React.FC<SandwichDetailsPageProps> = ({
           }
         }}
       >
-        <div>
-          <h3>Lorem ipsum dolor sit amet.</h3>
-        </div>
+        <SandwichInfoWrapper address={id}>
+          {sandwich => <MintSandwichModalContent {...sandwich} />}
+        </SandwichInfoWrapper>
       </ModalContentWrapper>
     </Modal>
   </RestrictedProfileWrapper>

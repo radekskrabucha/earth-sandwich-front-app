@@ -1,3 +1,4 @@
+import { useAccount } from 'wagmi'
 import { useState } from 'react'
 import { useGeolocation } from '@/hooks/useGeolocation'
 import type { HexString } from '@/types/common'
@@ -7,6 +8,7 @@ import { useUploadIPFSImage } from './useUploadIPFSImage'
 import { useUploadIPFSMetadata } from './useUploadIPFSMetadata'
 
 export const useAcceptInvitationForm = (sandwichId: HexString) => {
+  const { address } = useAccount()
   const { error, loading, latitude, longitude, timestamp } = useGeolocation({
     enableHighAccuracy: true,
     timeout: 5000,
@@ -53,7 +55,8 @@ export const useAcceptInvitationForm = (sandwichId: HexString) => {
               long: longitude
             },
             timestamp,
-            imageIPFSHash: ipfsHash
+            imageIPFSHash: ipfsHash,
+            address: address as HexString
           })
         )
       }
@@ -75,7 +78,8 @@ export const useAcceptInvitationForm = (sandwichId: HexString) => {
               lat: latitude,
               long: longitude
             },
-            timestamp
+            timestamp,
+            address: address as HexString
           })
         )
       }

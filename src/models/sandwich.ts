@@ -21,5 +21,6 @@ export type Location = {
 export type SandwichParticipantMetadata = {
   location: Location
   timestamp: number
+  address: HexString
   imageIPFSHash?: string
 }

@@ -1,6 +1,6 @@
 import { readContract } from 'viem/actions'
 import { EarthSandwichABI } from '@/abi/EarthSandwichABI'
-import { SandwichInviteCard } from '@/features/invitations/components/SandwichInvitationsCard'
+import { SandwichInvitationCard } from '@/features/invitations/components/SandwichInvitationsCard'
 import type { ProfilePageProps } from '@/features/profile/types'
 import { viemClient } from '@/lib/viem'
 import type { HexString } from '@/types/common'
@@ -38,7 +38,7 @@ export const ProfileSandwichesPendingPage: React.FC<ProfilePageProps> = async ({
                 address={sandwichAddress}
               >
                 {sandwich => (
-                  <SandwichInviteCard
+                  <SandwichInvitationCard
                     {...sandwich}
                     sandwichAddress={sandwichAddress}
                   />

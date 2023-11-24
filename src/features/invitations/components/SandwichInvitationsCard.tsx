@@ -23,7 +23,7 @@ export const SandwichInvitationCard: React.FC<SandwichInvitationCardProps> = ({
   >
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-1.5">
-        <h3 className="font-main font-bold">{name}</h3>
+        <h3 className="line-clamp-1 font-main font-bold">{name}</h3>
         <ProfileInfoWrapper address={owner}>
           {profile =>
             profile ? (
@@ -32,7 +32,7 @@ export const SandwichInvitationCard: React.FC<SandwichInvitationCardProps> = ({
                   src={profile.profileImageUrl}
                   className="h-10 w-10"
                 />
-                <p className="text-white/75">{profile.name}</p>
+                <p className="line-clamp-1 text-white/75">{profile.name}</p>
               </div>
             ) : null
           }
