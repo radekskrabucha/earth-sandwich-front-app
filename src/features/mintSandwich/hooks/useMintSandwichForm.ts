@@ -48,7 +48,8 @@ export const useMintSandwichForm = ({ sandwichId }: MintSandwichFormArgs) => {
     onSuccess: metadataIPFSHash => {
       mintSandwich({
         metadataIPFSHash,
-        sandwichId
+        sandwichId,
+        address: address as HexString
       })
     }
   })

@@ -8,6 +8,7 @@ import { getErrorMessage } from '@/utils/error'
 type MintSandwichArgs = {
   sandwichId: HexString
   metadataIPFSHash: string
+  address: HexString
 }
 
 type UseMintSandwichArgs = {
@@ -30,9 +31,13 @@ export const useMintSandwich = ({ onSuccess }: UseMintSandwichArgs) => {
     errorMessage: error ? getErrorMessage({ error }) : undefined,
     isSuccess,
     data,
-    mintSandwich: ({ sandwichId, metadataIPFSHash }: MintSandwichArgs) => {
+    mintSandwich: ({
+      sandwichId,
+      metadataIPFSHash,
+      address
+    }: MintSandwichArgs) => {
       write({
-        args: [sandwichId, metadataIPFSHash]
+        args: [sandwichId, metadataIPFSHash, address]
       })
     }
   }
