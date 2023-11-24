@@ -18,7 +18,7 @@ export const Input: React.FC<InputProps> = ({
   <div className="flex flex-col gap-1">
     {label && (
       <Label
-        className="text-secondary"
+        className="text-primary"
         htmlFor={props.id}
       >
         {label}

@@ -15,7 +15,7 @@ export const InputWithIcon: React.FC<InputWithIconProps> = ({
   </div>
 )
 export const inputWithIconVariants = cva(
-  'border border-secondary/50 rounded-lg bg-background flex items-center px-3 py-2 gap-1 text-sm focus-within:outline-none focus-within:ring-1 focus-within:ring-white focus-within:ring-offset-0',
+  'border border-primary rounded-lg bg-background flex items-center px-3 py-2 gap-1 text-sm focus-within:outline-none focus-within:ring-1 focus-within:ring-white focus-within:ring-offset-0',
   {
     variants: {
       iconSide: {
