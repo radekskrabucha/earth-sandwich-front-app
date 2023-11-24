@@ -1,7 +1,7 @@
 import { readContract } from 'viem/actions'
 import { EarthSandwichABI } from '@/abi/EarthSandwichABI'
 import { SandwichInvitationCard } from '@/features/invitations/components/SandwichInvitationsCard'
-import type { ProfilePageProps } from '@/features/profile/types'
+import type { ProfilePageProps } from '@/features/sandwich/types'
 import { viemClient } from '@/lib/viem'
 import type { HexString } from '@/types/common'
 import { client } from '@/utils/env'

@@ -13,13 +13,13 @@ export const UserMeTabs: React.FC<UserMeTabsProps> = ({
   address: paramAddress
 }) => (
   <RestrictedProfileWrapper
-    pushTo={InternalLink.profile(paramAddress, '')}
+    pushTo={InternalLink.profile(paramAddress, '/sandwiches')}
     shouldMatchAddress
     address={paramAddress}
   >
     <ProfileTab
       name="invitations"
-      href={InternalLink.profile(paramAddress, '/sandwich-invitations')}
+      href={InternalLink.profile(paramAddress, '/sandwiches/invitations')}
     />
   </RestrictedProfileWrapper>
 )

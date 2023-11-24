@@ -18,7 +18,7 @@ export const PendingSandwichDetails: React.FC<PendingSandwichDetailsProps> = ({
   sandwichId
 }) => (
   <RestrictedProfileWrapper
-    pushTo={InternalLink.profile(owner, '')}
+    pushTo={InternalLink.profile(owner, '/sandwiches')}
     shouldBeConnected
   >
     <section className="layout-section items-center gap-16 text-center">

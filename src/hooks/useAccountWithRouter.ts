@@ -14,7 +14,7 @@ export const useAccountWithRouter = () => {
     getIsUserAccount: (userAddress: HexString) => address === userAddress,
     getUserMeProfileLink: address
       ? (segment?: ProfileSegment) =>
-          InternalLink.profile(address, segment ?? '')
+          InternalLink.profile(address, segment ?? '/sandwiches')
       : undefined
   }
 }

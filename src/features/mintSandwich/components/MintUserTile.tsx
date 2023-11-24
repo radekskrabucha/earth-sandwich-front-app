@@ -1,7 +1,9 @@
 import { Avatar } from '@/components/Avatar'
 import { IconWrapper } from '@/components/IconWrapper'
 import { Image } from '@/components/Image'
+import { Link } from '@/components/Link'
 import { ProfileInfoWrapper } from '@/components/ProfileInfoWrapper'
+import { InternalLink } from '@/config/app'
 import type { SandwichParticipantMetadata } from '@/models/sandwich'
 import type { WithClassName } from '@/types/common'
 import { formatToDateWithTime } from '@/utils/date'
@@ -29,13 +31,15 @@ export const MintUserTile: React.FC<
           />
         )}
         <div className="z-10 flex w-full items-center gap-1.5 self-end bg-black/80 p-2">
-          <Avatar
-            src={profile?.profileImageUrl}
-            avatarProps={{
-              alt: profile?.name || ''
-            }}
-            className="h-5 w-5"
-          />
+          <Link href={InternalLink.profile(address, '/sandwiches')}>
+            <Avatar
+              src={profile?.profileImageUrl}
+              avatarProps={{
+                alt: profile?.name || ''
+              }}
+              className="h-5 w-5"
+            />
+          </Link>
           <div className="text-xs leading-tight">
             <h4 className="line-clamp-1">
               {profile?.name || shortenAddress(address)}

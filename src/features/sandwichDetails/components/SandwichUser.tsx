@@ -17,14 +17,14 @@ export const SandwichUser: React.FC<SandwichUserProps> = ({
   address
 }) => (
   <div className="flex flex-col items-center gap-6">
-    <Link href={InternalLink.profile(address, '')}>
+    <Link href={InternalLink.profile(address, '/sandwiches')}>
       <Avatar {...avatar} />
     </Link>
     <div className="flex flex-col items-center gap-1">
       {label && (
         <span className="text-sm capitalize text-white/50">{label}</span>
       )}
-      <Link href={InternalLink.profile(address, '')}>
+      <Link href={InternalLink.profile(address, '/sandwiches')}>
         <h3 className="font-main text-xl text-secondary">{name}</h3>
       </Link>
     </div>
