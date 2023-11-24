@@ -44,7 +44,12 @@ export const MintSandwichPage: React.FC<SandwichDetailsPageProps> = ({
         }}
       >
         <SandwichInfoWrapper address={id}>
-          {sandwich => <MintSandwichModalContent {...sandwich} />}
+          {sandwich => (
+            <MintSandwichModalContent
+              sandwich={sandwich}
+              sandwichId={id}
+            />
+          )}
         </SandwichInfoWrapper>
       </ModalContentWrapper>
     </Modal>
