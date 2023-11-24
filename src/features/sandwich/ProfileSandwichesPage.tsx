@@ -5,6 +5,7 @@ import type { ProfilePageProps } from '@/features/sandwich/types'
 import { viemClient } from '@/lib/viem'
 import type { HexString } from '@/types/common'
 import { client } from '@/utils/env'
+import { NoSandwichesInfo } from './components/NoSandwichesInfo'
 import { SandwichCard } from './components/SandwichCard'
 
 export const ProfileSandwichesPage: React.FC<ProfilePageProps> = async ({
@@ -19,21 +20,28 @@ export const ProfileSandwichesPage: React.FC<ProfilePageProps> = async ({
 
   return (
     <section className="layout-section">
-      <div className="grid grid-cols-2 gap-8 max-md:grid-cols-1">
-        {sandwiches.map((sandwichId, index) => (
-          <SandwichMetadataInfoWrapper
-            ipfsHash={sandwichesMetadata[index] as string}
-            key={sandwichId}
-          >
-            {sandwichMetadata => (
-              <SandwichCard
-                sandwich={sandwichMetadata}
-                sandwichId={sandwichId}
-              />
-            )}
-          </SandwichMetadataInfoWrapper>
-        ))}
-      </div>
+      {sandwiches.length !== 0 ? (
+        <div className="grid grid-cols-2 gap-8 max-md:grid-cols-1">
+          {sandwiches.map((sandwichId, index) => (
+            <SandwichMetadataInfoWrapper
+              ipfsHash={sandwichesMetadata[index] as string}
+              key={sandwichId}
+            >
+              {sandwichMetadata => (
+                <SandwichCard
+                  sandwich={sandwichMetadata}
+                  sandwichId={sandwichId}
+                />
+              )}
+            </SandwichMetadataInfoWrapper>
+          ))}
+        </div>
+      ) : (
+        <NoSandwichesInfo
+          title="No sandwiches here 😢"
+          description="Booo!👎👎👎👎 Not cooked any sandwich yet. This user doesn't know how to enjoy sandwiches."
+        />
+      )}
     </section>
   )
 }
