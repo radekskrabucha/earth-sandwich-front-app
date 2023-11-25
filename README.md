@@ -1,14 +1,15 @@
-# Next.js Application Template
+# EarthSandwich Frontend Application
 
-This repository contains a Next.js project template. It's designed to provide a solid foundation for building your Next.js applications, with a focus on simplicity, best practices, and modern development tools.
+## Overview
+The EarthSandwich is an interactive web platform for users to connect and create digital sandwiches across the globe. Built with Next.js and Tailwind CSS, it provides a seamless and engaging user experience, leveraging the EarthSandwich smart contract on the Lukso blockchain.
 
 ## Features
+- **Global Connection:** Connect with users worldwide to create virtual sandwiches.
+- **Interactive Invitations:** Send and accept invitations to participate in sandwich creation.
+- **NFT Minting:** Mint unique NFTs symbolizing the collaborative sandwiches made.
+- **Profile Management:** View and manage your created and participated sandwiches.
+- **Real-Time Notifications:** Stay updated with the latest invitations and sandwich completions.
 
-- **Next.js**: The core framework that powers the application.
-- **TypeScript**: This project is configured to use TypeScript for static type checking.
-- **ESLint and Prettier**: The project is set up with ESLint for linting and Prettier for code formatting.
-- **Husky and lint-staged**: These tools are used to ensure that all committed code is linted and formatted.
-- **Commitizen and commitlint**: These tools are used to enforce conventional commit messages.
 
 ## Getting Started
 
@@ -19,7 +20,6 @@ To get started with this template, follow the steps below:
 2. **Copy the environment file**: Copy the `.env.example` file to `.env` (`cp .env.example .env`)  and fill in the necessary values.
 3. **Run the development server**: Start the development server by running `yarn dev`.
 4. **Open the application**: Open your web browser and navigate to `http://localhost:3000` to see the application in action.
-5. **Start editing**: You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 ## Scripts
 
