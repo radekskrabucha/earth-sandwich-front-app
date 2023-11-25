@@ -1,6 +1,7 @@
 import { UserMetadataInfoWrapper } from '@/components/UserMetadataInfoWrapper'
 import { MintUserTile } from '@/features/mintSandwich/components/MintUserTile'
 import type { SandwichMetadata } from '@/models/sandwich'
+import { SandwichGlobe } from './SandwichGlobe'
 
 export const SandwichDetailsSection: React.FC<SandwichMetadata> = ({
   title,
@@ -30,5 +31,6 @@ export const SandwichDetailsSection: React.FC<SandwichMetadata> = ({
         </UserMetadataInfoWrapper>
       ))}
     </div>
+    <SandwichGlobe locations={[ownerMetadata.location]} />
   </section>
 )
